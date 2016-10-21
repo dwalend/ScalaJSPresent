@@ -1,0 +1,33 @@
+ScalaJs
+
+jQuery to replace contents of body tag
+
+* Little language for content
+
+    translate to html
+    * make pretty with css
+    * make a nice little language with infix operators
+
+Back and forward via keyboard
+    jQuery looks promising
+    * Remote control
+
+Scala code highlighting
+
+* Make text grow to fit boundaries
+
+* SVG Images or processing ?
+
+* Pictures
+
+* Highlight a piece of code
+
+* Call-out
+
+* Animated something
+
+* Animated call-out
+
+* Catch-22 reference
+
+* Scala.js really is like assembly code
