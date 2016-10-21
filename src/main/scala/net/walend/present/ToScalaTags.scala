@@ -1,7 +1,7 @@
 package net.walend.present
 
 import net.walend.present.Style._
-import org.scalajs.dom.html.{Anchor, Element, Span}
+import org.scalajs.dom.html.{Anchor, Div, Element, Span}
 
 import scalatags.JsDom.TypedTag
 import scalatags.JsDom.all._
@@ -23,8 +23,8 @@ object ToScalaTags {
     s"${slide.name}.html"
   }
 
-  def toSlideHtml(slide:Slide): TypedTag[Span] = {
-    span(`class`:="container")(slide.items.map(toTag))
+  def toSlideHtml(slide:Slide): TypedTag[Div] = {
+    div(slide.items.map(toTag))
   }
 
   def toTag(item:Item): TypedTag[Element] = {

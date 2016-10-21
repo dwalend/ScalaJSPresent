@@ -5,7 +5,7 @@ jQuery to replace contents of body tag
 * Little language for content
 
     translate to html
-    * make pretty with css
+    make pretty with css
     * make a nice little language with infix operators
 
 Back and forward via keyboard

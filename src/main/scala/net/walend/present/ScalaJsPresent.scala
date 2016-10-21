@@ -60,8 +60,9 @@ object ScalaJsPresent extends JSApp {
        """.stripMargin)
 
     val body: JQuery = jQuery("body")
+    body.addClass("container")
 
-    val slideTags: TypedTag[Span] = ToScalaTags.toSlideHtml(slides(currentSlideIndex))
+    val slideTags: TypedTag[Div] = ToScalaTags.toSlideHtml(slides(currentSlideIndex))
     body.html(slideTags.toString())
   }
 
