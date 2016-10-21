@@ -10,7 +10,7 @@ jQuery to replace contents of body tag
 
 Back and forward via keyboard
     jQuery looks promising
-    * Remote control
+    * Remote control - needs support to do via jQuery
 
 Scala code highlighting
 
