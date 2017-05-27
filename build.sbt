@@ -2,17 +2,15 @@ enablePlugins(ScalaJSPlugin)
 
 name := "Scala.js Tutorial"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.2"
 
 scalaJSUseRhino in Global := true
 
-//libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.0"
+libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.9.1"
 
-libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.9.0"
+libraryDependencies += "com.lihaoyi" %%% "scalatags" % "0.6.3"
 
-libraryDependencies += "com.lihaoyi" %%% "scalatags" % "0.6.0"
-
-libraryDependencies += "com.lihaoyi" %%% "utest" % "0.3.0" % "test"
+libraryDependencies += "com.lihaoyi" %%% "utest" % "0.4.7" % "test"
 testFrameworks += new TestFramework("utest.runner.Framework")
 
 skip in packageJSDependencies := false
