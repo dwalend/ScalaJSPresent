@@ -55,8 +55,8 @@ object ScalaJsPresent extends JSApp {
       s"""
          |    <meta charset="UTF-8">
          |    <title>${slides(currentSlideIndex).name}</title>
-         |    <link rel="stylesheet" href="./target/scala-2.11/classes/styles/moonDesign.css">
-         |    <link rel="stylesheet" href="./target/scala-2.11/classes/highlight/styles/dracula.css">
+         |    <link rel="stylesheet" href="./target/scala-2.12/classes/styles/moonDesign.css">
+         |    <link rel="stylesheet" href="./target/scala-2.12/classes/highlight/styles/dracula.css">
        """.stripMargin)
 
     val body: JQuery = jQuery("body")
