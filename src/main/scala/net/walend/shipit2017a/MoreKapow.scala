@@ -1,6 +1,6 @@
 package net.walend.shipit2017a
 
-import net.walend.present.{SimpleSlide, Table}
+import net.walend.present.{IFrame, SimpleSlide, Table}
 import net.walend.present.Shortcuts._
 
 /**
@@ -11,9 +11,42 @@ import net.walend.present.Shortcuts._
   */
 object MoreKapow {
 
-  val Cover = SimpleSlide ("More Kapow!",
+  val Cover = SimpleSlide ("Return of the Tech Talks",
+    t("Return of the Tech Talks"),
+    st("Tech Talks Once Per Month","https://open.med.harvard.edu/wiki/display/CATSAND/Tech+Talks"),
+    blank,
+    st("Jillian Dudek, David Walend"),
+    st("HMS Catalyst Shipit, June, 2017")
+  )
+
+  val TechTalks = SimpleSlide("Tech Talks",
+    t("Tech Talks"),
+    l1("Revival of Dev Club"),
+    l1("Once a month - planned through November"),
+    l1("All of Catalyst Informatics is Welcome"),
+    l1("Talks will drill deeply into technical details"),
+    l1("Come geek out with us")
+  )
+
+  val TechTalksAudience = SimpleSlide("Tech Talk Topics",
+    t("Tech Talk Topics"),
+    l1("Technology and Working with Technologists"),
+    l1("Technical Tools"),
+    l1("Coding Practices"),
+    l1("How We Work Together"),
+    l1("Expect to see code, stats, diagrams")
+  )
+
+  val WikiPage = SimpleSlide("Tech Talk Wiki Page",
+    t("Tech Talk Wiki Pages"),
+    l1("Upcoming and Past Talks","https://open.med.harvard.edu/wiki/display/CATSAND/Tech+Talks"),
+    l1("Ideas","https://open.med.harvard.edu/wiki/display/CATSAND/Tech+Talk+Topic+Ideas")
+  )
+
+  val MoreKapowCover = SimpleSlide ("More Kapow!",
     t("More Kapow!"),
     st("Outlines to Presentations in Scala.js"),
+    st("Now With More Features"),
     blank,
     st("David Walend, Ben Carmen, ..."),
     st("HMS Catalyst Shipit, June, 2017")
@@ -21,6 +54,7 @@ object MoreKapow {
   )
 
   val TableSlide = SimpleSlide("Tables",
+    t("Tables"),
     Table(Array(l2("Table header")),Array(Array(l2("Cell 1"),l2("Cell 2"))))
   )
 
@@ -82,7 +116,7 @@ object MoreKapow {
     l2("Ben - div tag, yes use jQuery, peer programming CSS")
   )
 
-  val slides = Seq(Cover,TableSlide,ScalaJs,JqueryInScala,SinglePageApp,LittleLanguage,Thanks)
+  val slides = Seq(Cover,TechTalks,TechTalksAudience,WikiPage)//MoreKapowCover,TableSlide,ScalaJs,JqueryInScala,SinglePageApp,LittleLanguage,Thanks)
 }
 
 //todo a slide about shrine and gage the room

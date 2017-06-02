@@ -33,6 +33,7 @@ object ToScalaTags {
       case codeBlock:CodeBlock => toTag(codeBlock)
       case fragLine:FragmentLine => toTag(fragLine)
       case table:Table => toTableMarkup(table)
+      case iFrame:IFrame => toIFrameMarkup(iFrame)
     }
   }
 
@@ -95,5 +96,9 @@ object ToScalaTags {
 
   def toTableMarkup(tab:Table):TypedTag[Element] = {
     table(th(tab.headRow.map(toTag)),tab.contents.map(row => tr(row.map(cell => td(toTag(cell))))))
+  }
+
+  def toIFrameMarkup(iFrame:IFrame):TypedTag[Element] = {
+    iframe(src := iFrame.urlText)
   }
 }

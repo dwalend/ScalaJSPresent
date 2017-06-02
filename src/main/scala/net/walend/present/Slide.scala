@@ -36,6 +36,8 @@ object LinkTextLine extends {
   def apply(text:String,urlText:String,style:Style) = FragmentLine(Seq(LinkFragment(text,urlText)),style)
 }
 
+case class IFrame(urlText:String) extends Item
+
 trait Block extends Item
 
 case class CodeBlock(code:String,syntax:CodeSyntax = CodeSyntax.Scala) extends Block
