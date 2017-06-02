@@ -1,6 +1,7 @@
 package net.walend.present
 
 import net.walend.shipit2016b.AboutKapow
+import net.walend.shipit2017a.MoreKapow
 import org.scalajs.dom._
 import org.scalajs.dom.html.{Element, _}
 import org.scalajs.jquery.{JQuery, _}
@@ -19,7 +20,7 @@ object ScalaJsPresent extends JSApp {
     jQuery(setupUI _)
   }
 
-  val slides = AboutKapow.slides
+  val slides = MoreKapow.slides
   var currentSlideIndex = 0
 
   def setupUI(): Unit = {

@@ -32,6 +32,7 @@ object ToScalaTags {
       case blankLine: Line if blankLine == BlankLine => toTag(blankLine)
       case codeBlock:CodeBlock => toTag(codeBlock)
       case fragLine:FragmentLine => toTag(fragLine)
+      case table:Table => toTableMarkup(table)
     }
   }
 
@@ -91,4 +92,8 @@ object ToScalaTags {
   val fragmentTag: Map[Style, TypedTag[Element]] = Map(
     ScalaCode -> code(`class`:="scala") //todo use codeBlock
   )
+
+  def toTableMarkup(tab:Table):TypedTag[Element] = {
+    table(th(tab.headRow.map(toTag)),tab.contents.map(row => tr(row.map(cell => td(toTag(cell))))))
+  }
 }

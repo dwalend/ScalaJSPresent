@@ -118,5 +118,4 @@ object Shortcuts {
   def f(text:String) = TextFragment(text)
   def f(text:String,link:String) = LinkFragment(text,link)
   def cf(text:String) = TextFragment(text,Style.ScalaCode)
-
 }
