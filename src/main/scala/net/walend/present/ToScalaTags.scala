@@ -39,8 +39,16 @@ object ToScalaTags {
 
   def toTag(blankLine: Line) = br()
 
-  def toTag(codeBlock: CodeBlock): TypedTag[Element] = {
-    code(codeBlock.code)
+  def toTag(block: CodeBlock): TypedTag[Element] = {
+    pre(script(
+      """
+        | $(document).ready(function() {
+        |  $('code').each(function(i, block) {
+        |    hljs.highlightBlock(block);
+        |  });
+        |});
+      """.stripMargin),
+      code(`class`:=block.syntax.name.toLowerCase)(block.code))
   }
 
   def toTag(line: FragmentLine):TypedTag[Element] = {
