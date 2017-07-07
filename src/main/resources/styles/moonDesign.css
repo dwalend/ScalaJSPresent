@@ -4,7 +4,7 @@
   background-color: #000033;
   color: #eeeeee;
   font-family: "Open Sans", sans-serif;
-  overflow: hidden;
+  overflow: scroll;
 }
 .container .text-container {
   position: absolute;
