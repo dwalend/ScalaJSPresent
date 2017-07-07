@@ -12,7 +12,7 @@ object Start {
 
   val Cover = SimpleSlide ("Cover",
     t("An Introduction To Scala"),
-    t("With Examples Using Slick and Spray"),
+    t("With Examples Using Slick and Akka-http"),
     blank,
     st("David Walend"),
     st("Boston Scala Meetup, May 20th, 2015"),
@@ -26,12 +26,10 @@ object Start {
   val Outline = SimpleSlide("Outline",
     l1("Scala"),
     l2("A Scalable Language"),
-    blank,
     l1("Slick"),
-    l2("A minimalist Database layer"),
-    blank,
-    l1("Spray"),
-    l2("A micro web-service framework"),
+    l2("A Functional Database Library"),
+    l1("Akka-http"),
+    l2("A Micro Web Service Framework"),
     blank,
     l2("Examples from HMS Catalyst SHRINE Data Steward App")
   )
@@ -43,18 +41,18 @@ object Start {
     LinkTextLine("A Scalable Programming Language","http://www.scala-lang.org/what-is-scala.html",Style.HeadLine),
     TextLine("Scales in Scope",Style.HeadLine),
     TextLine("Scripting, Web pages, Desktop, Servers, Distributed - Both Homo- and Heterogeneous",Style.SupportLine),
-    TextLine("Roots in Category Theory Make Code Expressive"),
+    TextLine("Roots in Category Theory Help Code Be Expressive"),
     TextLine("Scales for Differences in Knowledge and Experience",Style.HeadLine),
     TextLine("Enables Different Coding Styles",Style.SupportLine),
     TextLine("Strong Support for Procedural, OO, and Functional Styles",Style.SupportLine),
-    TextLine("Creators Intend it to Scale Through Time",Style.HeadLine)
+    TextLine("Creators Intend Scala to Scale Through Time",Style.HeadLine)
   )
 
   val CodeStyle = SimpleSlide("CodStyle",
     TextLine("Scala Enables Different Coding Styles",Style.Title),
     TextLine("Extremely Clear Code",Style.HeadLine),
     TextLine("Use the Style That Best Matches the Task at Hand",Style.SupportLine),
-    TextLine("Styles Made Built From Language Primitives",Style.HeadLine),
+    TextLine("Different Styles Can Be Made From Language Primitives",Style.HeadLine),
     TextLine("Not Language Changes",Style.SupportLine),
     TextLine("Solid Platform for Domain-Specific Languages",Style.HeadLine)
   )
@@ -63,7 +61,7 @@ object Start {
     TextLine("Scala Enables Different Coding Styles",Style.Title),
     TextLine("Strongly Typed - the Most Complete Type System in Use",Style.HeadLine),
     TextLine("Custom Control Flow",Style.HeadLine),
-    TextLine("First-class Functions and Higher-Order Functions",Style.SupportLine),
+    TextLine("First-Class Functions and Higher-Order Functions",Style.SupportLine),
     CodeBlock("""  def configForTest[T](key:String,value:String)(block: => T):T = {
                 |    val originalValue = System.getProperty(key)
                 |    System.setProperty(key,value)
@@ -73,7 +71,7 @@ object Start {
                 |
                 |  def testAutoApprove() {
                 |    configForTest("shrine.steward.mode","AutoApprove"){
-                |      ... //test code
+                |      ... //test code block
                 |    }
                 |  }
                 |
