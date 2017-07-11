@@ -13,7 +13,7 @@ object ProsAndCons {
   val Pros = SimpleSlide("Pros",
     TextLine("Scala - Pros", Style.Title),
     TextLine("Thinking About a Problem Results in Readable, Concise Code", Style.HeadLine),
-    FragmentLine(Seq(TextFragment("See"),LinkFragment("Dijkstra's Algorithm","http://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode"),TextFragment("With"),LinkFragment("Semirings: Java vs Scala","http://dwalend.github.io/blog/2014/10/05/Semirings/"))),
+    FragmentLine(Seq(TextFragment("See "),LinkFragment("Dijkstra's Algorithm","http://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode"),TextFragment(" With "),LinkFragment("Semirings: Java vs Scala","http://dwalend.github.io/blog/2014/10/05/Semirings/"))),
     TextLine("FP Helps Make Code Comprehendable", Style.HeadLine),
     LinkTextLine("Let Your Pattern Book Collect Dust","http://alvinalexander.com/scala/how-scala-killed-oop-strategy-design-pattern#What_about_those_other_OOP_design_patterns", Style.SupportLine),
     TextLine("Gentle Learning Curve From Java",Style.HeadLine),
@@ -21,14 +21,15 @@ object ProsAndCons {
     TextLine("Use Scala as a Better Java on the First Day",Style.SupportLine),
     TextLine("Knowledge of Java Libraries Carries Forward",Style.SupportLine),
     TextLine("Out \"Javas\" Java in all but Community and Uptake"),
-    FragmentLine(Seq(TextFragment("Compare"),LinkFragment("Scala's Intents","http://www.scala-lang.org/what-is-html"),TextFragment("to"),LinkFragment("Java's","http://www.oracle.com/technetwork/java/intro-141325.html#334")))
+    FragmentLine(Seq(TextFragment("Compare "),LinkFragment("Scala's Intents","http://www.scala-lang.org/what-is-html"),TextFragment(" to "),LinkFragment("Java's","http://www.oracle.com/technetwork/java/intro-141325.html#334")))
   )
 
   val CaseClass = SimpleSlide("CaseClass",
     TextLine("Case Classes", Style.Title),
     TextLine("Case Classes Are Scala's Common Currency", Style.HeadLine),
     CodeBlock(
-      """case class QueryParameters(researcherIdOption:Option[UserId] = None,
+      """case class QueryParameters(
+        |                            researcherIdOption:Option[UserId] = None,
         |                            stateOption:Option[TopicState] =  None,
         |                            skipOption:Option[Int] =  None,
         |                            limitOption:Option[Int] = None,
@@ -151,7 +152,7 @@ object ProsAndCons {
         |}
         |
       """.stripMargin,CodeSyntax.Java),
-    LinkTextLine("Fulfills Eight Items From Josh Bloch's _Effective Java_","http://grahamhackingscala.blogspot.com/2011/01/does-scala-equal-effective-java-bloch.html",Style.SupportLine)
+    LinkTextLine("Fulfills Eight Items From Josh Bloch's Effective Java","http://grahamhackingscala.blogspot.com/2011/01/does-scala-equal-effective-java-bloch.html",Style.SupportLine)
 
   )
 

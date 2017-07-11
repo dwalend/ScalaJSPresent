@@ -40,7 +40,8 @@ object Start {
     TextLine("Scala",Style.Title),
     LinkTextLine("A Scalable Programming Language","http://www.scala-lang.org/what-is-scala.html",Style.HeadLine),
     TextLine("Scales in Scope",Style.HeadLine),
-    TextLine("Scripting, Web pages, Desktop, Servers, Distributed - Both Homo- and Heterogeneous",Style.SupportLine),
+    TextLine("Scripting, Web pages, Desktop, Servers",Style.SupportLine),
+    TextLine("Distributed - Homogeneous and Heterogeneous",Style.SupportLine),
     TextLine("Roots in Category Theory Help Code Be Expressive"),
     TextLine("Scales for Differences in Knowledge and Experience",Style.HeadLine),
     TextLine("Enables Different Coding Styles",Style.SupportLine),
@@ -51,9 +52,9 @@ object Start {
   val CodeStyle = SimpleSlide("CodStyle",
     TextLine("Scala Enables Different Coding Styles",Style.Title),
     TextLine("Extremely Clear Code",Style.HeadLine),
-    TextLine("Use the Style That Best Matches the Task at Hand",Style.SupportLine),
+    TextLine("- Choose the Style That Best Matches the Task at Hand",Style.HeadLine),
     TextLine("Different Styles Can Be Made From Language Primitives",Style.HeadLine),
-    TextLine("Not Language Changes",Style.SupportLine),
+    TextLine("- Not Language Changes",Style.HeadLine),
     TextLine("Solid Platform for Domain-Specific Languages",Style.HeadLine)
   )
 
@@ -61,7 +62,7 @@ object Start {
     TextLine("Scala Enables Different Coding Styles",Style.Title),
     TextLine("Strongly Typed - the Most Complete Type System in Use",Style.HeadLine),
     TextLine("Custom Control Flow",Style.HeadLine),
-    TextLine("First-Class Functions and Higher-Order Functions",Style.SupportLine),
+    TextLine("Via First-Class Functions and Higher-Order Functions",Style.HeadLine),
     CodeBlock("""  def configForTest[T](key:String,value:String)(block: => T):T = {
                 |    val originalValue = System.getProperty(key)
                 |    System.setProperty(key,value)
@@ -81,20 +82,17 @@ object Start {
   val FuncOption = SimpleSlide("FuncOption",
     TextLine("Functional Programming with Option[T]",Style.Title),
     TextLine("Handle Empty Fields With Container",Style.HeadLine),
-    TextLine("Replace Nulls And Checks, Fix Sir Tony Hoare's ",Style.SupportLine),
+    TextLine("Replace Nulls And Checks, Fixes Sir Tony Hoare's ",Style.SupportLine),
     LinkTextLine(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine),
-    BlankLine,
     TextLine("Option[T] is an abstract class with two subclasses",Style.HeadLine),
     TextLine("Some - When a Value is Present",Style.SupportLine),
     TextLine("None - When No Value is Present",Style.SupportLine),
-    BlankLine,
     TextLine("Takes a type parameter T",Style.SupportLine),
-    BlankLine,
-    CodeBlock("""
-val someString:Option[String] = Some("some string")
-val noString:Option[String] = None
-val suspectString:Option[String] = Option(null) // == None
-              """)
+    CodeBlock(
+      """val someString:Option[String] = Some("some string")
+        |val noString:Option[String] = None
+        |val suspectString:Option[String] = Option(null) // == None
+      """.stripMargin)
   )
 
   val FuncFold = SimpleSlide("FuncFold",
@@ -107,7 +105,8 @@ val suspectString:Option[String] = Option(null) // == None
     CodeBlock(
       s"""
          |val yourOption:Option[String] = ...
-         |val stringToPrint = yourOption.fold(".")(string => s"!$$string!")
+         |val stringToPrint = yourOption.fold(".")(string => s"!$$string!") //. for None
+         |                                                                 //!your string! for Some("your string")
          |""".stripMargin),
     LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
   )
