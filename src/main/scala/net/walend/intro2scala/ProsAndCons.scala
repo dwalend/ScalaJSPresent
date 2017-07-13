@@ -13,14 +13,14 @@ object ProsAndCons {
   val Pros = SimpleSlide("Pros",
     TextLine("Scala - Pros", Style.Title),
     TextLine("Thinking About a Problem Results in Readable, Concise Code", Style.HeadLine),
-    FragmentLine(Seq(TextFragment("See "),LinkFragment("Dijkstra's Algorithm","http://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode"),TextFragment(" With "),LinkFragment("Semirings: Java vs Scala","http://dwalend.github.io/blog/2014/10/05/Semirings/"))),
+    FragmentLine(Seq(TextFragment("See "),LinkFragment("Dijkstra's Algorithm","http://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode"),TextFragment(" With "),LinkFragment("Semirings: Java vs Scala","http://dwalend.github.io/blog/2014/10/05/Semirings.html"))),
     TextLine("FP Helps Make Code Comprehendable", Style.HeadLine),
     LinkTextLine("Let Your Pattern Book Collect Dust","http://alvinalexander.com/scala/how-scala-killed-oop-strategy-design-pattern#What_about_those_other_OOP_design_patterns", Style.SupportLine),
     TextLine("Gentle Learning Curve From Java",Style.HeadLine),
-    TextLine("Runs on the Java VM",Style.SupportLine),
+    TextLine("Comfortable on the Java VM",Style.SupportLine),
     TextLine("Use Scala as a Better Java on the First Day",Style.SupportLine),
     TextLine("Knowledge of Java Libraries Carries Forward",Style.SupportLine),
-    TextLine("Out \"Javas\" Java in all but Community and Uptake"),
+    TextLine("""Out "Javas" Java in all but Community and Uptake"""),
     FragmentLine(Seq(TextFragment("Compare "),LinkFragment("Scala's Intents","http://www.scala-lang.org/what-is-html"),TextFragment(" to "),LinkFragment("Java's","http://www.oracle.com/technetwork/java/intro-141325.html#334")))
   )
 
@@ -44,12 +44,9 @@ object ProsAndCons {
       """.stripMargin),
     TextLine("Decompile via javap",Style.HeadLine),
     CodeBlock(
-      """
-        |> javap -p -cp .../target/classes net.shrine.steward.db.QueryParameters
-      """.stripMargin,CodeSyntax.Bash),
+      """> javap -p -cp .../target/classes net.shrine.steward.db.QueryParameters""".stripMargin,CodeSyntax.Bash),
     CodeBlock(
-      """
-        |public class QueryParameters implements Product,Serializable {
+      """public class QueryParameters implements Product,Serializable {
         |
         |//A simple constructor
         |
@@ -152,7 +149,7 @@ object ProsAndCons {
         |}
         |
       """.stripMargin,CodeSyntax.Java),
-    LinkTextLine("Fulfills Eight Items From Josh Bloch's Effective Java","http://grahamhackingscala.blogspot.com/2011/01/does-scala-equal-effective-java-bloch.html",Style.SupportLine)
+    LinkTextLine("Fulfills Eight Items From Josh Bloch's Effective Java","http://grahamhackingscala.blogspot.com/2011/01/does-scala-equal-effective-java-bloch.html",Style.HeadLine)
 
   )
 
@@ -162,8 +159,8 @@ object ProsAndCons {
     TextLine("Immutable FP Can Use All Cores With Safety and Comfort",Style.SupportLine),
     FragmentLine(Seq(
       TextFragment("Distributed, Large Scale, Reliable: "),
-      LinkFragment("Akka","http://akka.io"),TextFragment(","),
-      LinkFragment("Spark","https://spark.apache.org"),TextFragment(","),
+      LinkFragment("Akka","http://akka.io"),TextFragment(", "),
+      LinkFragment("Spark","https://spark.apache.org"),TextFragment(", "),
       LinkFragment("Storm","https://storm.apache.org")
     ),Style.TertiaryLine),
     LinkTextLine("Spark sped up Hadoop by 100X","https://spark.apache.org",Style.TertiaryLine),
@@ -173,7 +170,7 @@ object ProsAndCons {
     ),Style.TertiaryLine),
     FragmentLine(Seq(
       TextFragment("Compile Scala to Javascript via "),LinkFragment("scala.js","http://www.scala-js.org")),
-      Style.HeadLine),
+      Style.HeadLine),        //todo scala native, tastey, and dotty, too
     TextLine("Run in a Browser or via node.js Instead of in the JVM",Style.TertiaryLine),
     LinkTextLine("Project TASTY to Target New Platforms More Easily","https://docs.google.com/document/d/1h3KUMxsSSjyze05VecJGQ5H2yh7fNADtIf3chD3_wr0/edit",Style.SupportLine),
     TextLine("Sometimes Future-Proof",Style.SupportLine),
@@ -185,7 +182,7 @@ object ProsAndCons {
     TextLine("Scala - Cons",Style.Title),
     TextLine("Intimidating, Tall Learning Curve",Style.HeadLine),
     TextLine("Danger - Contains Monads, Category Theory, Programmable Type System",Style.SupportLine),
-    TextLine("No Barrier or Marker Between Easy and Hard Concepts",Style.SupportLine),
+    TextLine("No Warning Marker Between Easy and Hard Concepts",Style.SupportLine),
     TextLine("'Read and Think' Instead of 'Panicked Keyboard Pounding'",Style.HeadLine),
     TextLine("Extremely Poor Theatre for Hourly Consulting",Style.SupportLine),
     TextLine("Does Not Help Figure Out What Problem to Solve",Style.HeadLine),
@@ -196,8 +193,8 @@ object ProsAndCons {
     TextLine("Scala - More Cons",Style.Title),
     TextLine("Small, Tight-Knit Community",Style.HeadLine),
     TextLine("Academic Instead of Pragmatic Biases",Style.SupportLine),
-    TextLine("Local (Boston) Uptake in Islands",Style.HeadLine),
-    TextLine("Kendall Square, South End, Harbor District, Longwood, Waltham",Style.TertiaryLine),
+    TextLine("Local (Boston) Uptake Finally Reached 128 in 2016",Style.HeadLine),
+    TextLine("Most Jobs are in Pockets: Kendall Square, South End, Harbor District, Longwood",Style.TertiaryLine),
     TextLine("Rapidly Evolving Toolset and Libraries",Style.HeadLine),
     TextLine("Mild Disregard for Backwards Compatibility",Style.SupportLine)
   )

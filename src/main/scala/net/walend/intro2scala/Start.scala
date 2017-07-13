@@ -1,6 +1,6 @@
 package net.walend.intro2scala
 
-import net.walend.present.{CodeBlock, LinkTextLine, BlankLine, Style, TextLine, SimpleSlide}
+import net.walend.present.{BlankLine, CodeBlock, FragmentLine, LinkFragment, LinkTextLine, SimpleSlide, Style, TextFragment, TextLine}
 import net.walend.present.Shortcuts._
 
 /**
@@ -15,8 +15,8 @@ object Start {
     t("With Examples Using Slick and Akka-http"),
     blank,
     st("David Walend"),
-    st("Boston Scala Meetup, May 20th, 2015"),
-    st("Slides Online (MarkDown)", "https://dwalend.github.io/IntroScalaTalk/Cover.md")
+    st("Boston Scala Meetup, May 20th, 2015"), //todo new date
+    st("Slides Online (MarkDown)", "https://dwalend.github.io/IntroScalaTalk/Cover.md") //todo new version. Also, can you hang .js files?
   )
 
   val Abstract = SimpleSlide("Abstract",p(
@@ -42,10 +42,11 @@ object Start {
     TextLine("Scales in Scope",Style.HeadLine),
     TextLine("Scripting, Web pages, Desktop, Servers",Style.SupportLine),
     TextLine("Distributed - Homogeneous and Heterogeneous",Style.SupportLine),
+    TextLine("Java VM, Javascript in browsers, Native",Style.SupportLine),
     TextLine("Roots in Category Theory Help Code Be Expressive"),
-    TextLine("Scales for Differences in Knowledge and Experience",Style.HeadLine),
     TextLine("Enables Different Coding Styles",Style.SupportLine),
     TextLine("Strong Support for Procedural, OO, and Functional Styles",Style.SupportLine),
+    TextLine("Scales for Differences in Knowledge and Experience",Style.HeadLine),
     TextLine("Creators Intend Scala to Scale Through Time",Style.HeadLine)
   )
 
@@ -74,40 +75,39 @@ object Start {
                 |    configForTest("shrine.steward.mode","AutoApprove"){
                 |      ... //test code block
                 |    }
-                |  }
-                |
-                |  """.stripMargin)
+                |  }""".stripMargin)
   )
 
   val FuncOption = SimpleSlide("FuncOption",
     TextLine("Functional Programming with Option[T]",Style.Title),
     TextLine("Handle Empty Fields With Container",Style.HeadLine),
-    TextLine("Replace Nulls And Checks, Fixes Sir Tony Hoare's ",Style.SupportLine),
+    FragmentLine(Seq(
+      TextFragment("Replace Nulls And Checks, Fixes Sir Tony Hoare's "),
+      LinkFragment(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine
+      ))),
     LinkTextLine(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine),
     TextLine("Option[T] is an abstract class with two subclasses",Style.HeadLine),
     TextLine("Some - When a Value is Present",Style.SupportLine),
     TextLine("None - When No Value is Present",Style.SupportLine),
     TextLine("Takes a type parameter T",Style.SupportLine),
     CodeBlock(
-      """val someString:Option[String] = Some("some string")
+      """val someString:Option[String] = Option("a string") // == Some("a string")
         |val noString:Option[String] = None
-        |val suspectString:Option[String] = Option(null) // == None
-      """.stripMargin)
+        |val notSure:Option[String] = Option(null) // == None""".stripMargin)
   )
 
   val FuncFold = SimpleSlide("FuncFold",
     TextLine("Functional Programming with Option's fold()()",Style.HeadLine),
     BlankLine,
     TextLine("Option[T]'s fold()() method takes two functions"),
-    TextLine("def fold[Out](ifEmpty: => Out)(f: (T) => Out): Out",Style.ScalaCode),
-    TextLine("Some[T].fold()() evaluates the right function with the value as an argument",Style.SupportLine),
+    TextLine("def fold[Out](ifNone: => Out)(ifSome: (T) => Out): Out",Style.ScalaCode),
     TextLine("None[T].fold()() evaluates the left (no-argument) function",Style.SupportLine),
+    TextLine("Some[T].fold()() evaluates the right function with the value as the parameter",Style.SupportLine),
     CodeBlock(
-      s"""
-         |val yourOption:Option[String] = ...
-         |val stringToPrint = yourOption.fold(".")(string => s"!$$string!") //. for None
-         |                                                                 //!your string! for Some("your string")
-         |""".stripMargin),
+      s"""val yourOption:Option[String] = ...
+         |val stringToPrint = yourOption.fold(".")(string => s"!$$string!")
+         |//None returns "${None.fold(".")(string => s"!$string!")}"
+         |//Some("a string") returns "${Some("a string").fold(".")(string => s"!$string!")}"""".stripMargin),
     LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
   )
 

@@ -122,7 +122,8 @@ object Spray {
     TextLine("Better With a Higher Order Function"),
     CodeBlock("""  def matchQueryParameters(userName: Option[UserName])(parameterRoute:QueryParameters => Route): Route =  {
                 |
-                |    parameters('state.?,'skip.as[Int].?,'limit.as[Int].?,'sortBy.as[String].?,'sortDirection.as[String].?,'minDate.as[Date].?,'maxDate.as[Date].?) { (stateStringOption,skipOption,limitOption,sortByOption,sortOption,minDate,maxDate) =>
+                |    parameters('state.?,'skip.as[Int].?,'limit.as[Int].?,'sortBy.as[String].?,'sortDirection.as[String].?,'minDate.as[Date].?,'maxDate.as[Date].?) {
+                |      (stateStringOption,skipOption,limitOption,sortByOption,sortOption,minDate,maxDate) =>
                 |
                 |      val stateTry = TopicState.stateForStringOption(stateStringOption)
                 |      stateTry match {
