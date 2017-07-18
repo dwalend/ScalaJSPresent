@@ -37,7 +37,7 @@ object ScalaJsPresent extends JSApp {
     changeToSlide(currentSlideIndex)
 
     val body: JQuery = jQuery("body")
-
+    body.addClass("container")
     body.keyup(keyPressed _)
   }
 
@@ -60,11 +60,9 @@ object ScalaJsPresent extends JSApp {
   def changeToSlide(i:Int) = {
 
     currentSlideIndex = safeSlideIndex(i)
+    val slideTags: TypedTag[Div] = slideHtml(currentSlideIndex)
 
     val body: JQuery = jQuery("body")
-    body.addClass("container")
-
-    val slideTags: TypedTag[Div] = slideHtml(currentSlideIndex)
     body.html(slideTags.toString())
   }
 
