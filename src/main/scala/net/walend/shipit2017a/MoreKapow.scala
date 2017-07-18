@@ -101,7 +101,7 @@ object MoreKapow {
         |    val index = if(event.which == BACKWARDS_KEY) currentSlideIndex - 1
         |                        else if(event.which == FORWARDS_KEY) currentSlideIndex + 1
         |                        else currentSlideIndex
-        |    toSlide(index)
+        |    changeToSlide(index)
         |  }
       """.stripMargin)
   )

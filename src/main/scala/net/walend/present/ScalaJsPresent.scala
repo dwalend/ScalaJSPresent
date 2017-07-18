@@ -20,11 +20,21 @@ object ScalaJsPresent extends JSApp {
   }
 
   val slides = IntroToScala.slides
+  val slideHtml: Seq[TypedTag[Div]] = slides.map(ToScalaTags.toSlideHtml)
   var currentSlideIndex = 0
 
   def setupUI(): Unit = {
 
-    toSlide(currentSlideIndex)
+    val head: JQuery = jQuery("head")
+    head.html(
+      s"""
+         |    <meta charset="UTF-8">
+         |    <title>${slides(currentSlideIndex).name}</title>
+         |    <link rel="stylesheet" href="./target/scala-2.12/classes/styles/moonDesign.css">
+         |    <link rel="stylesheet" href="./target/scala-2.12/classes/highlight/styles/dracula.css">
+       """.stripMargin)
+
+    changeToSlide(currentSlideIndex)
 
     val body: JQuery = jQuery("body")
 
@@ -38,7 +48,7 @@ object ScalaJsPresent extends JSApp {
     val index = if(event.which == BACKWARDS_KEY) currentSlideIndex - 1
                         else if(event.which == FORWARDS_KEY) currentSlideIndex + 1
                         else currentSlideIndex
-    toSlide(index)
+    changeToSlide(index)
   }
 
   def safeSlideIndex(index:Int):Int = {
@@ -47,22 +57,14 @@ object ScalaJsPresent extends JSApp {
     else index
   }
 
-  def toSlide(i:Int) = {
-    currentSlideIndex = safeSlideIndex(i)
+  def changeToSlide(i:Int) = {
 
-    val head: JQuery = jQuery("head")
-    head.html(
-      s"""
-         |    <meta charset="UTF-8">
-         |    <title>${slides(currentSlideIndex).name}</title>
-         |    <link rel="stylesheet" href="./target/scala-2.12/classes/styles/moonDesign.css">
-         |    <link rel="stylesheet" href="./target/scala-2.12/classes/highlight/styles/dracula.css">
-       """.stripMargin)
+    currentSlideIndex = safeSlideIndex(i)
 
     val body: JQuery = jQuery("body")
     body.addClass("container")
 
-    val slideTags: TypedTag[Div] = ToScalaTags.toSlideHtml(slides(currentSlideIndex))
+    val slideTags: TypedTag[Div] = slideHtml(currentSlideIndex)
     body.html(slideTags.toString())
   }
 
