@@ -64,6 +64,9 @@ object ScalaJsPresent extends JSApp {
 
     val body: JQuery = jQuery("body")
     body.html(slideTags.toString())
+
+    val title: JQuery = jQuery("title")
+    title.html(slides(currentSlideIndex).name)
   }
 
 }
