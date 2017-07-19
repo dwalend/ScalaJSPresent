@@ -1,8 +1,7 @@
 package net.walend.present
 
 import net.walend.intro2scala.IntroToScala
-import org.scalajs.dom._
-import org.scalajs.dom.html.{Element, _}
+import org.scalajs.dom.html.Div
 import org.scalajs.jquery.{JQuery, _}
 
 import scala.scalajs.js.JSApp
@@ -19,12 +18,13 @@ object ScalaJsPresent extends JSApp {
     jQuery(setupUI _)
   }
 
-  val slides = IntroToScala.slides
+  val slides: Seq[SimpleSlide] = IntroToScala.slides
   val slideHtml: Seq[TypedTag[Div]] = slides.map(ToScalaTags.toSlideHtml)
   var currentSlideIndex = 0
 
   def setupUI(): Unit = {
 
+    //todo just set the title each time
     val head: JQuery = jQuery("head")
     head.html(
       s"""
@@ -41,7 +41,7 @@ object ScalaJsPresent extends JSApp {
     body.keyup(keyPressed _)
   }
 
-  def keyPressed(event:JQueryEventObject) = {
+  def keyPressed(event:JQueryEventObject): JQuery = {
     val BACKWARDS_KEY = 37
     val FORWARDS_KEY = 39
 
@@ -57,7 +57,7 @@ object ScalaJsPresent extends JSApp {
     else index
   }
 
-  def changeToSlide(i:Int) = {
+  def changeToSlide(i:Int): JQuery = {
 
     currentSlideIndex = safeSlideIndex(i)
     val slideTags: TypedTag[Div] = slideHtml(currentSlideIndex)
