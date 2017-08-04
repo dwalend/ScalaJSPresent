@@ -15,20 +15,28 @@ object Start {
     t("With Examples Using Slick and Akka-http"),
     blank,
     st("David Walend"),
-    st("Boston Scala Meetup, May 20th, 2015"), //todo new date
+    st("Boston Scala Meetup, September 6th, 2017"),
     st("Slides Online (MarkDown)", "https://dwalend.github.io/IntroScalaTalk/Cover.md") //todo new version. Also, can you hang .js files?
   )
 
-  val Abstract = SimpleSlide("Abstract",p(
-    """The Boston Area Scala Enthusiasts MeetUp has had several requests for an introductory level talk on Scala. I recently put such a talk together for my coworkers at HMS that I'd like to share. I'll describe a bit about how Scala's founders intended it to be a scalable programming language, and cite examples that show some success. I will also share some anecdotes from my own career regarding pros and cons of Scala at work and in hobby code. Along the way I'll introduce case classes, Options, a little functional programming, Slick -- a database library, and Spray -- a web service library, all through example code pulled out of source control at my day job."""
-  ))
+  val Abstract = SimpleSlide("Abstract",
+    p(
+    """Use of Scala in Boston has expanded from a niche language in startups to general use, so the Boston Area Scala Enthusiasts MeetUp is presenting this introductory level talk on Scala. I'll describe a bit about how Scala's founders intended it to be a scalable programming language, and cite examples that show some success. I will also share some anecdotes from my own career regarding pros and cons of Scala at work and in hobby code. Along the way I'll introduce case classes, Options, a little functional programming, Slick -- a database library, and Akka-Http -- a web service library, all through example code pulled out of source control at my day job."""),
+    p(
+      """
+        |David Walend is the tech lead and back-end developer for HMS SHRINE, a system for providing access to nationally distributed patient medical records while protecting patient privacy. SHRINE is one of "the oldest Scala open source projects that actually does something." David began using Scala in hobby code in 2011, and at work in 2013. He has 25 years of experience as a software developer, primarily focusing on geographically distributed resilient back-end systems, providing him a deep well of anecdotes.
+      """.stripMargin
+    )
+
+  )
 
   val Outline = SimpleSlide("Outline",
     l1("Scala"),
     l2("A Scalable Language"),
     l1("Slick"),
     l2("A Functional Database Library"),
-    l1("Akka-http"),
+//    l1("Akka-http"),
+    l1(TextFragment(" Spray.io ",Style.StrikeThrough),f(" Akka-http")),
     l2("A Micro Web Service Framework"),
     blank,
     l2("Examples from HMS Catalyst SHRINE Data Steward App")

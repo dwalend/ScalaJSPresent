@@ -91,6 +91,8 @@ object ToScalaTags {
     Title -> h1(style:="text-align:center").apply,
     SubTitle -> h2(style:="text-align:center").apply,
     HeadLine -> h2.apply,
+//    StrikeThrough -> h2(style:="text-decoration:line-through").apply,
+    StrikeThrough -> s.apply,
     SupportLine -> h3.apply,
     TertiaryLine -> h4.apply,
     ScalaCode -> codeBlock,    //needs the pre tag, too
@@ -99,6 +101,7 @@ object ToScalaTags {
   )
 
   val fragmentTag: Map[Style, TypedTag[Element]] = Map(
+    StrikeThrough -> s,
     ScalaCode -> code(`class`:="scala") //todo use codeBlock
   )
 

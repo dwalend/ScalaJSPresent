@@ -63,13 +63,14 @@ object Style {
   val Title = Style("Title")
   val SubTitle = Style("SubTitle")
   val HeadLine = Style("HeadLine")
+  val StrikeThrough = Style("StrikeThrough")
   val SupportLine = Style("SupportLine")
   val TertiaryLine = Style("TertiaryLine")
   val ScalaCode = Style("ScalaCode")
   val Quote = Style("Quote")
   val Plain = Style("Plain")
 
-  val allStyles = Set(Title,SubTitle,HeadLine,SupportLine,TertiaryLine,ScalaCode,Plain)
+  val allStyles = Set(Title,SubTitle,HeadLine,StrikeThrough,SupportLine,TertiaryLine,ScalaCode,Plain)
 }
 
 sealed case class CodeSyntax(name:String)

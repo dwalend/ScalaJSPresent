@@ -8,7 +8,7 @@ scalaJSUseRhino in Global := true
 
 libraryDependencies += "be.doeraene" %%% "scalajs-jquery" % "0.9.1"
 
-libraryDependencies += "com.lihaoyi" %%% "scalatags" % "0.6.3"
+libraryDependencies += "com.lihaoyi" %%% "scalatags" % "0.6.5"
 
 libraryDependencies += "com.lihaoyi" %%% "utest" % "0.4.7" % "test"
 testFrameworks += new TestFramework("utest.runner.Framework")

@@ -6,6 +6,13 @@ Not Quite "Why I Love Scala - Let Me Count the Ways"
 Intro-Level, General Audience, and That's the Point
 Most Examples in Scala
 
+About SHRINE
+
+SHRINE as a Lab
+
+Code Quality and Project Success
+
+Code Quality and Job Satisfaction
 
 Odersky's 2016 Resolution
 Li Haoyi's Blog
