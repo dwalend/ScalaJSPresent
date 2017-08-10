@@ -75,14 +75,19 @@ object Slick {
 
   )
 
+  //todo update code for Slick 3.
   val SlickLiftedQuery = SimpleSlide("SlickLiftedQuery",
     TextLine("Slick Composible Lifted Query",Style.Title),
     CodeBlock("""  private def topicCountQuery(queryParameters: QueryParameters):Query[TopicTable, TopicTable#TableElementType, Seq] = {
                 |    val allTopics:Query[TopicTable, TopicTable#TableElementType, Seq] = allTopicQuery
-                |    val researcherFilter = queryParameters.researcherIdOption.fold(allTopics)(researcherId => allTopics.filter(_.createdBy === researcherId))
-                |    val stateFilter = queryParameters.stateOption.fold(researcherFilter)(state => researcherFilter.filter(_.state === state.name))
-                |    val minDateFilter = queryParameters.minDate.fold(stateFilter)(minDate => stateFilter.filter(_.changeDate >= minDate))
-                |    val maxDateFilter = queryParameters.maxDate.fold(minDateFilter)(maxDate => minDateFilter.filter(_.changeDate <= maxDate))
+                |    val researcherFilter = queryParameters.researcherIdOption.fold(allTopics)(
+                |                       researcherId => allTopics.filter(_.createdBy === researcherId))
+                |    val stateFilter = queryParameters.stateOption.fold(researcherFilter)(
+                |                       state => researcherFilter.filter(_.state === state.name))
+                |    val minDateFilter = queryParameters.minDate.fold(stateFilter)(
+                |                       minDate => stateFilter.filter(_.changeDate >= minDate))
+                |    val maxDateFilter = queryParameters.maxDate.fold(minDateFilter)(
+                |                       maxDate => minDateFilter.filter(_.changeDate <= maxDate))
                 |
                 |    maxDateFilter
                 |  }
@@ -92,19 +97,22 @@ object Slick {
                 |
                 |    //todo is there some way to get a map from column names to columns that I don't have to update?
                 |    val orderByQuery = queryParameters.sortByOption.fold(countFilter)(
-                |      columnName => countFilter.sortBy(x => queryParameters.sortOrder.orderForColumn(columnName match {
-                |        case "id" => x.id
-                |        case "name" => x.name
-                |        case "description" => x.description
-                |        case "createdBy" => x.createdBy
-                |        case "createDate" => x.createDate
-                |        case "state" => x.state
-                |        case "changedBy" => x.changedBy
-                |        case "changeDate" => x.changeDate
-                |      })))
+                |      columnName => countFilter.sortBy(
+                |        x => queryParameters.sortOrder.orderForColumn(columnName match {
+                |          case "id" => x.id
+                |          case "name" => x.name
+                |          case "description" => x.description
+                |          case "createdBy" => x.createdBy
+                |          case "createDate" => x.createDate
+                |          case "state" => x.state
+                |          case "changedBy" => x.changedBy
+                |          case "changeDate" => x.changeDate
+                |        })))
                 |
-                |    val skipFilter = queryParameters.skipOption.fold(orderByQuery)(skip => orderByQuery.drop(skip))
-                |    val limitFilter = queryParameters.limitOption.fold(skipFilter)(limit => skipFilter.take(limit))
+                |    val skipFilter = queryParameters.skipOption.fold(orderByQuery)(
+                |                    skip => orderByQuery.drop(skip))
+                |    val limitFilter = queryParameters.limitOption.fold(skipFilter)(
+                |                    limit => skipFilter.take(limit))
                 |
                 |    limitFilter
                 |  }
@@ -140,9 +148,9 @@ object Slick {
                 |  ) yield topic
                 |
                 |  private def topicCountQuery(queryParameters: QueryParameters):Query[TopicTable, TopicTable#TableElementType, Seq] = {
-                |    val allTopics:Query[TopicTable, TopicTable#TableElementType, Seq] = mostRecentTopicQuery
+                |    val allTopics = mostRecentTopicQuery
                 |...""".stripMargin),
-    TextLine("Now SQL Looks Like This: "),
+    TextLine("Now the SQL Looks Like This: "),
     CodeBlock("""select x2."id", x2."name", x2."description", x2."createdBy",
                 |x2."createDate", x2."state", x2."changedBy", x2."changeDate" from "topics"
                 |x2 where (not exists(select x3."createDate", x3."description", x3."state",
@@ -173,6 +181,7 @@ object Slick {
                 |""".stripMargin)
   )
 
+  //todo update
   val Slick3 = SimpleSlide("Slick3",
     TextLine("Slick 3.0",Style.Title),
     TextLine("Database I/O Actions Supports FP Cleanly",Style.HeadLine),

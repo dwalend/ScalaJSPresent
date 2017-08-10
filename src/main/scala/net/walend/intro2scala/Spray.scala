@@ -2,6 +2,8 @@ package net.walend.intro2scala
 
 import net.walend.present.{TextLine, CodeBlock, LinkTextLine, SimpleSlide, Style}
 
+import net.walend.present.Shortcuts._
+
 /**
  *
  *
@@ -155,5 +157,13 @@ object Spray {
                 |""".stripMargin)
   )
 
-  val slides = Seq(SprayIntro,SprayRoute,SprayRouteDsl,SprayDirective,SprayNoDirective)
+  //todo fill in a slide about the transition to Akka-http
+  val ToAkkaHttp = SimpleSlide("ToAkkaHttp",
+    t("Transition to Akka-Http"),
+    l1("Good thing I used that higher order function"),
+    l2("Akka-http doesn't use Shapeless in directives anymore")
+    //todo code clip of the new type of directive
+  )
+
+  val slides = Seq(SprayIntro,SprayRoute,SprayRouteDsl,SprayDirective,SprayNoDirective,ToAkkaHttp)
 }

@@ -173,7 +173,7 @@ object ProsAndCons {
       Style.HeadLine),        //todo scala native, tastey, and dotty, too
     TextLine("Run in a Browser or via node.js Instead of in the JVM",Style.TertiaryLine),
     LinkTextLine("Project TASTY to Target New Platforms More Easily","https://docs.google.com/document/d/1h3KUMxsSSjyze05VecJGQ5H2yh7fNADtIf3chD3_wr0/edit",Style.SupportLine),
-    TextLine("Sometimes Future-Proof",Style.SupportLine),
+    TextLine("Sometimes Future-Proof",Style.HeadLine),
 //    LinkTextLine("Spray to use Akka streams without changing existing Spray Routes","http://spray.io/msug/#/",Style.TertiaryLine),
     TextLine("Fun",Style.HeadLine)
   )
@@ -181,7 +181,7 @@ object ProsAndCons {
   val Cons = SimpleSlide("Cons",
     TextLine("Scala - Cons",Style.Title),
     TextLine("Intimidating, Tall Learning Curve",Style.HeadLine),
-    TextLine("Danger - Contains Monads, Category Theory, Programmable Type System",Style.SupportLine),
+    TextLine("Danger - Contains Monads, Category Theory, Programmable Type System, etc.",Style.SupportLine),
     TextLine("No Warning Marker Between Easy and Hard Concepts",Style.SupportLine),
     TextLine("'Read and Think' Instead of 'Panicked Keyboard Pounding'",Style.HeadLine),
     TextLine("Extremely Poor Theatre for Hourly Consulting",Style.SupportLine),
@@ -196,7 +196,8 @@ object ProsAndCons {
     TextLine("Local (Boston) Uptake Finally Reached 128 in 2016",Style.HeadLine),
     TextLine("Most Jobs are in Pockets: Kendall Square, South End, Harbor District, Longwood",Style.TertiaryLine),
     TextLine("Rapidly Evolving Toolset and Libraries",Style.HeadLine),
-    TextLine("Mild Disregard for Backwards Compatibility",Style.SupportLine)
+    TextLine("Mild Disregard for Backwards Compatibility",Style.SupportLine),
+    TextLine("Spray.io to Akka-http is the latest of many",Style.SupportLine)
   )
 
   val slides = Seq(Pros,CaseClass,MorePros,Cons,MoreCons)

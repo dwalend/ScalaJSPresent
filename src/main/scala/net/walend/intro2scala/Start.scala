@@ -20,8 +20,7 @@ object Start {
   )
 
   val Abstract = SimpleSlide("Abstract",
-    p(
-    """Use of Scala in Boston has expanded from a niche language in startups to general use, so the Boston Area Scala Enthusiasts MeetUp is presenting this introductory level talk on Scala. I'll describe a bit about how Scala's founders intended it to be a scalable programming language, and cite examples that show some success. I will also share some anecdotes from my own career regarding pros and cons of Scala at work and in hobby code. Along the way I'll introduce case classes, Options, a little functional programming, Slick -- a database library, and Akka-Http -- a web service library, all through example code pulled out of source control at my day job."""),
+    p("""Scala – a scalable programming language – has roots in academia and is swiftly being adopted by industry. Scala scales down to scripts and single-page web-apps, up to distributed stream-processing systems, can be used by novices and masters, and promises to scale through time to support long-lived projects. I will use examples from SHRINE - a tool for querying distributed demographic, diagnostic, and treatment data - to show Scala's strengths and weaknesses, and share my own experience with Scala."""),
     p(
       """
         |David Walend is the tech lead and back-end developer for HMS SHRINE, a system for providing access to nationally distributed patient medical records while protecting patient privacy. SHRINE is one of "the oldest Scala open source projects that actually does something." David began using Scala in hobby code in 2011, and at work in 2013. He has 25 years of experience as a software developer, primarily focusing on geographically distributed resilient back-end systems, providing him a deep well of anecdotes.
@@ -30,19 +29,17 @@ object Start {
 
   )
 
+  //todo shrine catalyst slide
+
   val Outline = SimpleSlide("Outline",
     l1("Scala"),
     l2("A Scalable Language"),
-    l1("Slick"),
-    l2("A Functional Database Library"),
-//    l1("Akka-http"),
-    l1(TextFragment(" Spray.io ",Style.StrikeThrough),f(" Akka-http")),
-    l2("A Micro Web Service Framework"),
+    l1("Examples use:"),
+    l2("Slick: A Functional Database Library"),
+    l2(TextFragment("Spray.io",Style.StrikeThrough),f(" Akka-Http: A Micro Web Service Framework")),
     blank,
-    l2("Examples from HMS Catalyst SHRINE Data Steward App")
+    l2("Examples are from HMS Catalyst SHRINE")
   )
-
-  //todo shrine catalyst slide
 
   val ScalaWhat = SimpleSlide("ScalaWhat",
     TextLine("Scala",Style.Title),
@@ -61,10 +58,10 @@ object Start {
   val CodeStyle = SimpleSlide("CodStyle",
     TextLine("Scala Enables Different Coding Styles",Style.Title),
     TextLine("Extremely Clear Code",Style.HeadLine),
-    TextLine("- Choose the Style That Best Matches the Task at Hand",Style.HeadLine),
+    TextLine("Choose the Style That Best Matches the Task at Hand",Style.SupportLine),
     TextLine("Different Styles Can Be Made From Language Primitives",Style.HeadLine),
-    TextLine("- Not Language Changes",Style.HeadLine),
-    TextLine("Solid Platform for Domain-Specific Languages",Style.HeadLine)
+    TextLine("Not Language Changes",Style.SupportLine),
+    TextLine("Solid Platform for Domain-Specific Languages",Style.SupportLine)
   )
 
   val CodeStyleFromLanguage = SimpleSlide("CodeStyleFromLanguage",
@@ -104,18 +101,19 @@ object Start {
         |val notSure:Option[String] = Option(null) // == None""".stripMargin)
   )
 
+  //todo add practical example from yesterday - fixing a BlockingQueue's poll method
+
   val FuncFold = SimpleSlide("FuncFold",
-    TextLine("Functional Programming with Option's fold()()",Style.HeadLine),
-    BlankLine,
+    TextLine("Functional Programming with Option's fold()()",Style.Title),
     TextLine("Option[T]'s fold()() method takes two functions"),
-    TextLine("def fold[Out](ifNone: => Out)(ifSome: (T) => Out): Out",Style.ScalaCode),
+    TextLine("def fold[Out](isNone: => Out)(isSome: (T) => Out): Out",Style.ScalaCode),
     TextLine("None[T].fold()() evaluates the left (no-argument) function",Style.SupportLine),
     TextLine("Some[T].fold()() evaluates the right function with the value as the parameter",Style.SupportLine),
     CodeBlock(
       s"""val yourOption:Option[String] = ...
-         |val stringToPrint = yourOption.fold(".")(string => s"!$$string!")
-         |//None returns "${None.fold(".")(string => s"!$string!")}"
-         |//Some("a string") returns "${Some("a string").fold(".")(string => s"!$string!")}"""".stripMargin),
+         |val stringToPrint = yourOption.fold("*")(string => s"!$$string!")
+         |//None returns "${None.fold("*")(string => s"!$string!")}"
+         |//Some("a string") returns "${Some("a string").fold("*")(string => s"!$string!")}"""".stripMargin),
     LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
   )
 
