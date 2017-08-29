@@ -153,6 +153,7 @@ object ProsAndCons {
 
   )
 
+  //todo scala native
   val MorePros = SimpleSlide("MorePros",
     TextLine("Scala - More Pros", Style.Title),
     TextLine("Fits Contemporary and Next Generation Computing Systems", Style.HeadLine),
@@ -177,6 +178,7 @@ object ProsAndCons {
 //    LinkTextLine("Spray to use Akka streams without changing existing Spray Routes","http://spray.io/msug/#/",Style.TertiaryLine),
     TextLine("Fun",Style.HeadLine)
   )
+  //todo scala.js breakout "Your hands are soaking in it"
 
   val Cons = SimpleSlide("Cons",
     TextLine("Scala - Cons",Style.Title),
@@ -193,8 +195,8 @@ object ProsAndCons {
     TextLine("Scala - More Cons",Style.Title),
     TextLine("Small, Tight-Knit Community",Style.HeadLine),
     TextLine("Academic Instead of Pragmatic Biases",Style.SupportLine),
-    TextLine("Local (Boston) Uptake Finally Reached 128 in 2016",Style.HeadLine),
-    TextLine("Most Jobs are in Pockets: Kendall Square, South End, Harbor District, Longwood",Style.TertiaryLine),
+    TextLine("Local (Boston) Uptake Finally Reached 128 in late 2016",Style.HeadLine),
+    TextLine("Most Jobs remain in Pockets: Kendall Square, South End, Harbor District, Longwood",Style.TertiaryLine),
     TextLine("Rapidly Evolving Toolset and Libraries",Style.HeadLine),
     TextLine("Mild Disregard for Backwards Compatibility",Style.SupportLine),
     TextLine("Spray.io to Akka-http is the latest of many",Style.SupportLine)

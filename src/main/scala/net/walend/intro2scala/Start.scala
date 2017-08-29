@@ -42,12 +42,11 @@ object Start {
   )
 
   val ScalaWhat = SimpleSlide("ScalaWhat",
-    TextLine("Scala",Style.Title),
-    LinkTextLine("A Scalable Programming Language","http://www.scala-lang.org/what-is-scala.html",Style.HeadLine),
+    t(f("Scala: "),f("A Scalable Programming Language","http://www.scala-lang.org/what-is-scala.html")),
     TextLine("Scales in Scope",Style.HeadLine),
     TextLine("Scripting, Web pages, Desktop, Servers",Style.SupportLine),
     TextLine("Distributed - Homogeneous and Heterogeneous",Style.SupportLine),
-    TextLine("Java VM, Javascript in browsers, Native",Style.SupportLine),
+    TextLine("Java VM, Javascript in browsers, Android, Native",Style.SupportLine),
     TextLine("Roots in Category Theory Help Code Be Expressive"),
     TextLine("Enables Different Coding Styles",Style.SupportLine),
     TextLine("Strong Support for Procedural, OO, and Functional Styles",Style.SupportLine),
@@ -66,8 +65,8 @@ object Start {
 
   val CodeStyleFromLanguage = SimpleSlide("CodeStyleFromLanguage",
     TextLine("Scala Enables Different Coding Styles",Style.Title),
-    TextLine("Strongly Typed - the Most Complete Type System in Use",Style.HeadLine),
-    TextLine("Custom Control Flow",Style.HeadLine),
+    TextLine("Strongly Typed - With a Turing Complete Type System",Style.HeadLine),
+    TextLine("Easy Custom Control Flow",Style.HeadLine),
     TextLine("Via First-Class Functions and Higher-Order Functions",Style.HeadLine),
     CodeBlock("""  def configForTest[T](key:String,value:String)(block: => T):T = {
                 |    val originalValue = System.getProperty(key)
@@ -85,7 +84,7 @@ object Start {
 
   val FuncOption = SimpleSlide("FuncOption",
     TextLine("Functional Programming with Option[T]",Style.Title),
-    TextLine("Handle Empty Fields With Container",Style.HeadLine),
+    TextLine("Handle Empty Fields With a Collection of Zero or One Thing",Style.HeadLine),
     FragmentLine(Seq(
       TextFragment("Replace Nulls And Checks, Fixes Sir Tony Hoare's "),
       LinkFragment(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine
@@ -101,8 +100,6 @@ object Start {
         |val notSure:Option[String] = Option(null) // == None""".stripMargin)
   )
 
-  //todo add practical example from yesterday - fixing a BlockingQueue's poll method
-
   val FuncFold = SimpleSlide("FuncFold",
     TextLine("Functional Programming with Option's fold()()",Style.Title),
     TextLine("Option[T]'s fold()() method takes two functions"),
@@ -117,7 +114,27 @@ object Start {
     LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
   )
 
-  val slides = Seq(Cover,Abstract,Outline,ScalaWhat,CodeStyle,CodeStyleFromLanguage,FuncOption,FuncFold)
-}
+  //todo add practical example from yesterday - fixing a BlockingQueue's poll method
+  val OptionBlockingQueue = SimpleSlide("OptionBlockingQueue",
+    TextLine("Functional Programming with Option's fold()()",Style.Title),
+    CodeBlock(
+      s"""val yourOption:Option[String] = ...
+         |val stringToPrint = yourOption.fold("*")(string => s"!$$string!")
+         |//None returns "${None.fold("*")(string => s"!$string!")}"
+         |//Some("a string") returns "${Some("a string").fold("*")(string => s"!$string!")}"""".stripMargin),
+    LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
+  )
 
-//todo a slide about shrine and gage the room
+  //todo Example from Yifan
+  val OptionErrorHandling = SimpleSlide("OptionErrorHandling",
+    TextLine("Functional Programming with Option's fold()()",Style.Title),
+    CodeBlock(
+      s"""val yourOption:Option[String] = ...
+         |val stringToPrint = yourOption.fold("*")(string => s"!$$string!")
+         |//None returns "${None.fold("*")(string => s"!$string!")}"
+         |//Some("a string") returns "${Some("a string").fold("*")(string => s"!$string!")}"""".stripMargin),
+    LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
+  )
+
+  val slides = Seq(Cover,Abstract,Outline,ScalaWhat,CodeStyle,CodeStyleFromLanguage,FuncOption,FuncFold,OptionBlockingQueue,OptionErrorHandling)
+}
