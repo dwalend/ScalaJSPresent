@@ -53,9 +53,9 @@ object Spray {
                 |  }
                 |
                 |  def researcherRoute(user:User):Route = authorize(UserAuthenticator.authorizeResearcher(user)) {
-                |    pathPrefix("topics") {getUserTopics(user)} ~
-                |      pathPrefix("queryHistory") {getUserQueryHistory(Some(user))} ~
-                |      pathPrefix("requestTopicAccess") {requestTopicAccess(user) }
+                |    path("topics") {getUserTopics(user)} ~
+                |      path("queryHistory") {getUserQueryHistory(Some(user))} ~
+                |      path("requestTopicAccess") {requestTopicAccess(user) }
                 |  }
                 |
                 |  def getUserTopics(user:User):Route = get {
@@ -160,6 +160,7 @@ object Spray {
   //todo fill in a slide about the transition to Akka-http
   val ToAkkaHttp = SimpleSlide("ToAkkaHttp",
     t("Transition to Akka-Http"),
+    l1("A Route Really Does Convert an HttpRequestContext Into a Promised HttpResponse."),
     l1("Good thing I used that higher order function"),
     l2("Akka-http doesn't use Shapeless in directives anymore")
     //todo code clip of the new type of directive

@@ -14,7 +14,7 @@ object ProsAndCons {
     TextLine("Scala - Pros", Style.Title),
     TextLine("Thinking About a Problem Results in Readable, Concise Code", Style.HeadLine),
     FragmentLine(Seq(TextFragment("See "),LinkFragment("Dijkstra's Algorithm","http://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode"),TextFragment(" With "),LinkFragment("Semirings: Java vs Scala","http://dwalend.github.io/blog/2014/10/05/Semirings.html"))),
-    TextLine("FP Helps Make Code Comprehendable", Style.HeadLine),
+    TextLine("Clearly Express Your Intent in Code", Style.HeadLine),
     LinkTextLine("Let Your Pattern Book Collect Dust","http://alvinalexander.com/scala/how-scala-killed-oop-strategy-design-pattern#What_about_those_other_OOP_design_patterns", Style.SupportLine),
     TextLine("Gentle Learning Curve From Java",Style.HeadLine),
     TextLine("Comfortable on the Java VM",Style.SupportLine),
@@ -199,7 +199,7 @@ object ProsAndCons {
     TextLine("Most Jobs remain in Pockets: Kendall Square, South End, Harbor District, Longwood",Style.TertiaryLine),
     TextLine("Rapidly Evolving Toolset and Libraries",Style.HeadLine),
     TextLine("Mild Disregard for Backwards Compatibility",Style.SupportLine),
-    TextLine("Spray.io to Akka-http is the latest of many",Style.SupportLine)
+    TextLine("Spray.io to Akka-http is the Latest of Many",Style.SupportLine)
   )
 
   val slides = Seq(Pros,CaseClass,MorePros,Cons,MoreCons)

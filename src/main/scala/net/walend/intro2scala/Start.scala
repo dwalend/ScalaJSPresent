@@ -16,7 +16,7 @@ object Start {
     blank,
     st("David Walend"),
     st("Boston Scala Meetup, September 6th, 2017"),
-    st("Slides Online (MarkDown)", "https://dwalend.github.io/IntroScalaTalk/Cover.md") //todo new version. Also, can you hang .js files?
+    st("Slides Online", "https://dwalend.github.io/IntroScalaTalk/Cover.md") //todo new version. Also, can you hang .js files?
   )
 
   val Abstract = SimpleSlide("Abstract",
@@ -59,7 +59,7 @@ object Start {
     TextLine("Extremely Clear Code",Style.HeadLine),
     TextLine("Choose the Style That Best Matches the Task at Hand",Style.SupportLine),
     TextLine("Different Styles Can Be Made From Language Primitives",Style.HeadLine),
-    TextLine("Not Language Changes",Style.SupportLine),
+    TextLine("Libraries, Not Language Changes",Style.SupportLine),
     TextLine("Solid Platform for Domain-Specific Languages",Style.SupportLine)
   )
 
@@ -86,7 +86,7 @@ object Start {
     TextLine("Functional Programming with Option[T]",Style.Title),
     TextLine("Handle Empty Fields With a Collection of Zero or One Thing",Style.HeadLine),
     FragmentLine(Seq(
-      TextFragment("Replace Nulls And Checks, Fixes Sir Tony Hoare's "),
+      TextFragment("Replace Nulls And Checks to fix Sir Tony Hoare's "),
       LinkFragment(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine
       ))),
     LinkTextLine(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine),
@@ -98,6 +98,17 @@ object Start {
       """val someString:Option[String] = Option("a string") // == Some("a string")
         |val noString:Option[String] = None
         |val notSure:Option[String] = Option(null) // == None""".stripMargin)
+  )
+
+  //todo add practical example from yesterday - fixing a BlockingQueue's poll method
+  val OptionBlockingQueue = SimpleSlide("OptionBlockingQueue",
+    TextLine("Refitting With Option",Style.Title),
+    TextLine("BlockingQueue.poll() returns either a value or null",Style.HeadLine),
+    CodeBlock(
+      s"""val blockingQueue:BlockingQueue[String] = ...
+         |
+         |Option(blockingQueue.poll()).foreach{ string:String => ...}""".stripMargin),
+    LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
   )
 
   val FuncFold = SimpleSlide("FuncFold",
@@ -114,27 +125,5 @@ object Start {
     LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
   )
 
-  //todo add practical example from yesterday - fixing a BlockingQueue's poll method
-  val OptionBlockingQueue = SimpleSlide("OptionBlockingQueue",
-    TextLine("Functional Programming with Option's fold()()",Style.Title),
-    CodeBlock(
-      s"""val yourOption:Option[String] = ...
-         |val stringToPrint = yourOption.fold("*")(string => s"!$$string!")
-         |//None returns "${None.fold("*")(string => s"!$string!")}"
-         |//Some("a string") returns "${Some("a string").fold("*")(string => s"!$string!")}"""".stripMargin),
-    LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
-  )
-
-  //todo Example from Yifan
-  val OptionErrorHandling = SimpleSlide("OptionErrorHandling",
-    TextLine("Functional Programming with Option's fold()()",Style.Title),
-    CodeBlock(
-      s"""val yourOption:Option[String] = ...
-         |val stringToPrint = yourOption.fold("*")(string => s"!$$string!")
-         |//None returns "${None.fold("*")(string => s"!$string!")}"
-         |//Some("a string") returns "${Some("a string").fold("*")(string => s"!$string!")}"""".stripMargin),
-    LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
-  )
-
-  val slides = Seq(Cover,Abstract,Outline,ScalaWhat,CodeStyle,CodeStyleFromLanguage,FuncOption,FuncFold,OptionBlockingQueue,OptionErrorHandling)
+  val slides = Seq(Cover,Abstract,Outline,ScalaWhat,CodeStyle,CodeStyleFromLanguage,FuncOption,OptionBlockingQueue,FuncFold)
 }

@@ -14,14 +14,15 @@ object Slick {
     TextLine("A Database Library For Scala", Style.HeadLine),
     TextLine("Uses Scala's Common Currencies In Its API",Style.SupportLine),
     TextLine("Case Classes and Tuples",Style.SupportLine),
-    LinkTextLine("Functional-Relational Mapping API Queries Look Like Scala","http://slick.typesafe.com/doc/3.0.0/introduction.html",Style.HeadLine),
+    LinkTextLine("A Functional-Relational Mapping API Makes Queries Look Like Scala","http://slick.typesafe.com/doc/3.0.0/introduction.html",Style.HeadLine),
     LinkTextLine("Compact, Clean Code","https://open.med.harvard.edu/vvc/viewvc.cgi/shrine/trunk/code/steward/src/main/scala/net/shrine/steward/db/StewardDatabase.scala?view=markup",Style.SupportLine),
     LinkTextLine("Composible Queries","https://open.med.harvard.edu/vvc/viewvc.cgi/shrine/trunk/code/steward/src/main/scala/net/shrine/steward/db/StewardDatabase.scala?view=markup",Style.SupportLine),
     TextLine("Previously Session-Based and Called 'Lifted' in Slick 2.1",Style.SupportLine),
-    TextLine("Plain SQL API Gives Full Control Over SQL",Style.HeadLine),
+    TextLine("A Plain SQL API Gives Full Control Over SQL",Style.HeadLine),
     TextLine("Isolates SQL's Complexity",Style.SupportLine)
   )
 
+  //todo can that toRow be simplified?
   val SlickLiftedTable = SimpleSlide("SlickLiftedTable",
     TextLine("Slick Lifted Table",Style.Title),
     CodeBlock("""case class TopicRecord(id:Option[TopicId] = None,
