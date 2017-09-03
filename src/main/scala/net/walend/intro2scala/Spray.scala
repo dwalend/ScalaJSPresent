@@ -13,8 +13,8 @@ import net.walend.present.Shortcuts._
 object Spray {
 
   val SprayIntro = SimpleSlide("SprayIntro",
-    LinkTextLine("Spray.io","http://spray.io/introduction/what-is-spray/",Style.Title),
-    TextLine("A Library For Micro Web Services and Clients",Style.HeadLine),
+    t("Spray.io","http://spray.io/introduction/what-is-spray/"),
+    TextLine("A Library For Web Micro Services and Clients",Style.HeadLine),
     LinkTextLine("Asyncrhonous, Actor-Based, NIO-Based, Fast, Lightweight, Modular, and Testable","http://spray.io/introduction/what-is-spray/",Style.SupportLine),
     TextLine("A Spray HttpService Builds an HttpResponse for an HttpRequest Using a Route",Style.TertiaryLine),
     TextLine("A Spray Service Might Use All IO or All Cores With a Gentle Degradation",Style.SupportLine),
@@ -27,6 +27,7 @@ object Spray {
   )
 
   val SprayRoute = SimpleSlide("SprayRoute",
+    t("Spray Route"),
     TextLine("A Spray Route is a Function That Takes a RequestContext",Style.HeadLine),
     TextLine("A RequestConext is an HttpRequest Plus Odd Bits",Style.SupportLine),
     TextLine("Route Does Not Return Anything, But Can Send an HttpResponse to an Akka Actor",Style.SupportLine),
@@ -38,7 +39,7 @@ object Spray {
   )
 
   val SprayRouteDsl = SimpleSlide("SprayRouteDsl",
-    TextLine("Spray Routing Provides a DSL",Style.HeadLine),
+    t("Spray Routing Provides a DSL"),
     TextLine("(Conceptually) Converts an HttpRequest Into an HttpResponse",Style.SupportLine),
     CodeBlock("https://datasteward.example.edu/researcher/topics?skip=10&limit=5&sortBy=name&sortDirection=ascending"),
     CodeBlock("""  lazy val route:Route =
@@ -71,7 +72,7 @@ object Spray {
   )
 
   val SprayDirective = SimpleSlide("SprayDirective",
-    TextLine("A Spray Directive"),
+    t("A Spray Directive"),
     TextLine("Tried the parameters() Directive to Create New QueryParameters",Style.TertiaryLine),
     CodeBlock("""    def getUserTopics(userId:UserId):Route = get {
                 |      parameters(('userName.?,'state.?,'skip.as[Int].?,'limit.as[Int].?,'sortBy.as[String].?,'sortDirection.as[String].?).as[QueryParameters]) {
@@ -121,7 +122,7 @@ object Spray {
   )
 
   val SprayNoDirective = SimpleSlide("SprayNoDirective",
-    TextLine("Better With a Higher Order Function"),
+    t("Better With a Higher Order Function"),
     CodeBlock("""  def matchQueryParameters(userName: Option[UserName])(parameterRoute:QueryParameters => Route): Route =  {
                 |
                 |    parameters('state.?,'skip.as[Int].?,'limit.as[Int].?,'sortBy.as[String].?,'sortDirection.as[String].?,'minDate.as[Date].?,'maxDate.as[Date].?) {
@@ -161,8 +162,7 @@ object Spray {
   val ToAkkaHttp = SimpleSlide("ToAkkaHttp",
     t("Transition to Akka-Http"),
     l1("A Route Really Does Convert an HttpRequestContext Into a Promised HttpResponse."),
-    l1("Good thing I used that higher order function"),
-    l2("Akka-http doesn't use Shapeless in directives anymore")
+    l1("Akka-http doesn't use Shapeless in directives anymore")
     //todo code clip of the new type of directive
   )
 

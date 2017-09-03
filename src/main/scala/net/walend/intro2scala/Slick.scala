@@ -1,6 +1,7 @@
 package net.walend.intro2scala
 
 import net.walend.present.{CodeBlock, CodeSyntax, LinkTextLine, SimpleSlide, Style, TextLine}
+import net.walend.present.Shortcuts._
 
 
 /**
@@ -10,21 +11,20 @@ import net.walend.present.{CodeBlock, CodeSyntax, LinkTextLine, SimpleSlide, Sty
 object Slick {
 
   val SlickIntro = SimpleSlide("Slick",
-    LinkTextLine("Slick","http://slick.typesafe.com/doc/3.0.0/introduction.html", Style.Title),
-    TextLine("A Database Library For Scala", Style.HeadLine),
+    t("Slick","http://slick.typesafe.com/doc/3.0.0/introduction.html"),
+    TextLine("An FP Database Library For Scala", Style.HeadLine),
     TextLine("Uses Scala's Common Currencies In Its API",Style.SupportLine),
     TextLine("Case Classes and Tuples",Style.SupportLine),
     LinkTextLine("A Functional-Relational Mapping API Makes Queries Look Like Scala","http://slick.typesafe.com/doc/3.0.0/introduction.html",Style.HeadLine),
     LinkTextLine("Compact, Clean Code","https://open.med.harvard.edu/vvc/viewvc.cgi/shrine/trunk/code/steward/src/main/scala/net/shrine/steward/db/StewardDatabase.scala?view=markup",Style.SupportLine),
     LinkTextLine("Composible Queries","https://open.med.harvard.edu/vvc/viewvc.cgi/shrine/trunk/code/steward/src/main/scala/net/shrine/steward/db/StewardDatabase.scala?view=markup",Style.SupportLine),
-    TextLine("Previously Session-Based and Called 'Lifted' in Slick 2.1",Style.SupportLine),
     TextLine("A Plain SQL API Gives Full Control Over SQL",Style.HeadLine),
     TextLine("Isolates SQL's Complexity",Style.SupportLine)
   )
 
   //todo can that toRow be simplified?
   val SlickLiftedTable = SimpleSlide("SlickLiftedTable",
-    TextLine("Slick Lifted Table",Style.Title),
+    t("Slick Lifted Table"),
     CodeBlock("""case class TopicRecord(id:Option[TopicId] = None,
                 |                        name:String,
                 |                        description:String,
@@ -76,9 +76,9 @@ object Slick {
 
   )
 
-  //todo update code for Slick 3.
+  //todo update code for Slick 3. Still session-based
   val SlickLiftedQuery = SimpleSlide("SlickLiftedQuery",
-    TextLine("Slick Composible Lifted Query",Style.Title),
+    t("Slick Composible Lifted Query"),
     CodeBlock("""  private def topicCountQuery(queryParameters: QueryParameters):Query[TopicTable, TopicTable#TableElementType, Seq] = {
                 |    val allTopics:Query[TopicTable, TopicTable#TableElementType, Seq] = allTopicQuery
                 |    val researcherFilter = queryParameters.researcherIdOption.fold(allTopics)(
@@ -142,7 +142,7 @@ object Slick {
   )
 
   val SlickComposibleQuery = SimpleSlide("SlickComposibleQuery",
-    TextLine("New Requirement - Change History for Topics",Style.Title),
+    t("New Requirement - Change History for Topics"),
     TextLine("Composible Queries Work",Style.HeadLine),
     CodeBlock("""  val mostRecentTopicQuery: Query[TopicTable, TopicRecord, Seq] = for(
                 |    topic <- allTopicQuery if !allTopicQuery.filter(_.id === topic.id).filter(_.changeDate > topic.changeDate).exists
@@ -162,7 +162,7 @@ object Slick {
   )
 
   val SlickPlainSql = SimpleSlide("SlickPlainSql",
-    TextLine("Slick Plain SQL",Style.Title),
+    t("Slick Plain SQL"),
     CodeBlock("""      val columnNamesToSelect = columnsToSelect.map(_.name)
                 |
                 |      //Get distinct researcher ids
@@ -184,7 +184,7 @@ object Slick {
 
   //todo update
   val Slick3 = SimpleSlide("Slick3",
-    TextLine("Slick 3.0",Style.Title),
+    t("Slick 3.0"),
     TextLine("Database I/O Actions Supports FP Cleanly",Style.HeadLine),
     TextLine("Publish to Akka Streams to get Reactive Backpressure",Style.SupportLine),
     LinkTextLine("Hikari NIO Connection Pool","http://brettwooldridge.github.io/HikariCP/",Style.SupportLine),

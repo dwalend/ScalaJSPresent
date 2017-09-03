@@ -32,12 +32,11 @@ object Start {
   //todo shrine catalyst slide
 
   val Outline = SimpleSlide("Outline",
-    l1("Scala"),
-    l2("A Scalable Language"),
+    t("Scala"),
+    l1("A Scalable Language"),
     l1("Examples use:"),
     l2("Slick: A Functional Database Library"),
     l2(TextFragment("Spray.io",Style.StrikeThrough),f(" Akka-Http: A Micro Web Service Framework")),
-    blank,
     l2("Examples are from HMS Catalyst SHRINE")
   )
 
@@ -55,7 +54,7 @@ object Start {
   )
 
   val CodeStyle = SimpleSlide("CodStyle",
-    TextLine("Scala Enables Different Coding Styles",Style.Title),
+    t("Scala Enables Different Coding Styles"),
     TextLine("Extremely Clear Code",Style.HeadLine),
     TextLine("Choose the Style That Best Matches the Task at Hand",Style.SupportLine),
     TextLine("Different Styles Can Be Made From Language Primitives",Style.HeadLine),
@@ -64,7 +63,7 @@ object Start {
   )
 
   val CodeStyleFromLanguage = SimpleSlide("CodeStyleFromLanguage",
-    TextLine("Scala Enables Different Coding Styles",Style.Title),
+    t("Scala Enables Different Coding Styles"),
     TextLine("Strongly Typed - With a Turing Complete Type System",Style.HeadLine),
     TextLine("Easy Custom Control Flow",Style.HeadLine),
     TextLine("Via First-Class Functions and Higher-Order Functions",Style.HeadLine),
@@ -83,14 +82,13 @@ object Start {
   )
 
   val FuncOption = SimpleSlide("FuncOption",
-    TextLine("Functional Programming with Option[T]",Style.Title),
+    t("Functional Programming with Option[T]"),
     TextLine("Handle Empty Fields With a Collection of Zero or One Thing",Style.HeadLine),
     FragmentLine(Seq(
       TextFragment("Replace Nulls And Checks to fix Sir Tony Hoare's "),
       LinkFragment(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine
       ))),
-    LinkTextLine(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine),
-    TextLine("Option[T] is an abstract class with two subclasses",Style.HeadLine),
+    TextLine("Option[T] is a sealed abstract class with two subclasses",Style.HeadLine),
     TextLine("Some - When a Value is Present",Style.SupportLine),
     TextLine("None - When No Value is Present",Style.SupportLine),
     TextLine("Takes a type parameter T",Style.SupportLine),
@@ -102,17 +100,19 @@ object Start {
 
   //todo add practical example from yesterday - fixing a BlockingQueue's poll method
   val OptionBlockingQueue = SimpleSlide("OptionBlockingQueue",
-    TextLine("Refitting With Option",Style.Title),
+    t("Refitting With Option"),
     TextLine("BlockingQueue.poll() returns either a value or null",Style.HeadLine),
     CodeBlock(
       s"""val blockingQueue:BlockingQueue[String] = ...
          |
-         |Option(blockingQueue.poll()).foreach{ string:String => ...}""".stripMargin),
-    LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
+         |Option(blockingQueue.poll()).foreach{ string:String => println(string)}""".stripMargin),
+    TextLine("foreach() takes f(s:String) as a paramter",Style.SupportLine),
+    TextLine("Evaluates f(s) for the one s in Some(s)",Style.SupportLine),
+    TextLine("Does nothing for None",Style.SupportLine)
   )
 
   val FuncFold = SimpleSlide("FuncFold",
-    TextLine("Functional Programming with Option's fold()()",Style.Title),
+    t("Functional Programming with Option's fold()()"),
     TextLine("Option[T]'s fold()() method takes two functions"),
     TextLine("def fold[Out](isNone: => Out)(isSome: (T) => Out): Out",Style.ScalaCode),
     TextLine("None[T].fold()() evaluates the left (no-argument) function",Style.SupportLine),

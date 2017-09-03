@@ -1,6 +1,7 @@
 package net.walend.intro2scala
 
 import net.walend.present.{BlankLine, LinkTextLine, Style, TextLine, SimpleSlide}
+import net.walend.present.Shortcuts._
 
 /**
  *
@@ -11,7 +12,7 @@ import net.walend.present.{BlankLine, LinkTextLine, Style, TextLine, SimpleSlide
 object WrapUp {
 
   val WrapUp = SimpleSlide("WrapUp",
-    TextLine("Scala Leads Where We Are Going",Style.Title),
+    t("Scala Leads Where We Are Going"),
     TextLine("Scala Can Adopt New Code Styles",Style.HeadLine),
     TextLine("Java Follows Scala: JDK8 Streams, Lambdas, Optional",Style.SupportLine),
     TextLine("Even More Awkward For Other Language Ecosystems",Style.SupportLine),

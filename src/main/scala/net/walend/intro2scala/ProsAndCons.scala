@@ -1,7 +1,7 @@
 package net.walend.intro2scala
 
 import net.walend.present.{CodeSyntax, CodeBlock, LinkTextLine, LinkFragment, TextFragment, FragmentLine, Style, TextLine, SimpleSlide}
-
+import net.walend.present.Shortcuts._
 
 /**
  * @author david
@@ -11,8 +11,8 @@ object ProsAndCons {
 
 
   val Pros = SimpleSlide("Pros",
-    TextLine("Scala - Pros", Style.Title),
-    TextLine("Thinking About a Problem Results in Readable, Concise Code", Style.HeadLine),
+    t("Scala - Pros"),
+    TextLine("Thinking Results in Readable, Precise Code", Style.HeadLine),
     FragmentLine(Seq(TextFragment("See "),LinkFragment("Dijkstra's Algorithm","http://en.wikipedia.org/wiki/Dijkstra's_algorithm#Pseudocode"),TextFragment(" With "),LinkFragment("Semirings: Java vs Scala","http://dwalend.github.io/blog/2014/10/05/Semirings.html"))),
     TextLine("Clearly Express Your Intent in Code", Style.HeadLine),
     LinkTextLine("Let Your Pattern Book Collect Dust","http://alvinalexander.com/scala/how-scala-killed-oop-strategy-design-pattern#What_about_those_other_OOP_design_patterns", Style.SupportLine),
@@ -25,7 +25,7 @@ object ProsAndCons {
   )
 
   val CaseClass = SimpleSlide("CaseClass",
-    TextLine("Case Classes", Style.Title),
+    t("Case Classes"),
     TextLine("Case Classes Are Scala's Common Currency", Style.HeadLine),
     CodeBlock(
       """case class QueryParameters(
@@ -40,7 +40,6 @@ object ProsAndCons {
         |val everything = QueryParameters()
         |val justDave = QueryParameters(researcherIdOption = Some("dave"))
         |val justDaveByDate = justDave.copy(sortByOption = Some("date"))
-        |
       """.stripMargin),
     TextLine("Decompile via javap",Style.HeadLine),
     CodeBlock(
@@ -92,12 +91,15 @@ object ProsAndCons {
         |  public static Option<TopicState> apply$default$2();
         |  public static Option<String> apply$default$1();
         |
-        |//Standard creation and decomposition via apply(), unapply(), tupled(), and copy() constructors
+        |//Standard creation and decomposition via apply(), unapply(), tupled()
         |
         |  public static Option<Tuple6<Option<String>, Option<TopicState>, Option<Object>, Option<Object>, Option<String>, SortOrder>> unapply(QueryParameters);
         |  public static QueryParameters apply(Option<String>, Option<TopicState>, Option<Object>, Option<Object>, Option<String>, SortOrder);
         |  public static Function1<Tuple6<Option<String>, Option<TopicState>, Option<Object>, Option<Object>, Option<String>, SortOrder>, QueryParameters> tupled();
         |  public static Function1<Option<String>, Function1<Option<TopicState>, Function1<Option<Object>, Function1<Option<Object>, Function1<Option<String>, Function1<SortOrder, QueryParameters>>>>>> curried();
+        |
+        |//copy() constructor
+        |
         |  public QueryParameters copy(Option<String>, Option<TopicState>, Option<Object>, Option<Object>, Option<String>, SortOrder);
         |  public Option<String> copy$default$1();
         |  public Option<TopicState> copy$default$2();
@@ -155,7 +157,7 @@ object ProsAndCons {
 
   //todo scala native
   val MorePros = SimpleSlide("MorePros",
-    TextLine("Scala - More Pros", Style.Title),
+    t("Scala - More Pros"),
     TextLine("Fits Contemporary and Next Generation Computing Systems", Style.HeadLine),
     TextLine("Immutable FP Can Use All Cores With Safety and Comfort",Style.SupportLine),
     FragmentLine(Seq(
@@ -181,7 +183,7 @@ object ProsAndCons {
   //todo scala.js breakout "Your hands are soaking in it"
 
   val Cons = SimpleSlide("Cons",
-    TextLine("Scala - Cons",Style.Title),
+    t("Scala - Cons"),
     TextLine("Intimidating, Tall Learning Curve",Style.HeadLine),
     TextLine("Danger - Contains Monads, Category Theory, Programmable Type System, etc.",Style.SupportLine),
     TextLine("No Warning Marker Between Easy and Hard Concepts",Style.SupportLine),
@@ -192,7 +194,7 @@ object ProsAndCons {
   )
 
   val MoreCons = SimpleSlide("MoreCons",
-    TextLine("Scala - More Cons",Style.Title),
+    t("Scala - More Cons"),
     TextLine("Small, Tight-Knit Community",Style.HeadLine),
     TextLine("Academic Instead of Pragmatic Biases",Style.SupportLine),
     TextLine("Local (Boston) Uptake Finally Reached 128 in late 2016",Style.HeadLine),
