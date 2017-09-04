@@ -29,15 +29,13 @@ object Start {
 
   )
 
-  //todo shrine catalyst slide
-
   val Outline = SimpleSlide("Outline",
     t("Scala"),
     l1("A Scalable Language"),
     l1("Examples use:"),
     l2("Slick: A Functional Database Library"),
-    l2(TextFragment("Spray.io",Style.StrikeThrough),f(" Akka-Http: A Micro Web Service Framework")),
-    l2("Examples are from HMS Catalyst SHRINE")
+    l2(TextFragment("Spray.io",Style.StrikeThrough),f(" Akka-Http: A Web Micro Service Framework")),
+    l2("Examples are from HMS Catalyst SHRINE (NIH Funded)")
   )
 
   val ScalaWhat = SimpleSlide("ScalaWhat",
@@ -46,9 +44,9 @@ object Start {
     TextLine("Scripting, Web pages, Desktop, Servers",Style.SupportLine),
     TextLine("Distributed - Homogeneous and Heterogeneous",Style.SupportLine),
     TextLine("Java VM, Javascript in browsers, Android, Native",Style.SupportLine),
-    TextLine("Roots in Category Theory Help Code Be Expressive"),
-    TextLine("Enables Different Coding Styles",Style.SupportLine),
+    l1("Enables Different Coding Styles"),
     TextLine("Strong Support for Procedural, OO, and Functional Styles",Style.SupportLine),
+    l2("Roots in Category Theory Help Code Be Expressive"),
     TextLine("Scales for Differences in Knowledge and Experience",Style.HeadLine),
     TextLine("Creators Intend Scala to Scale Through Time",Style.HeadLine)
   )
@@ -98,17 +96,16 @@ object Start {
         |val notSure:Option[String] = Option(null) // == None""".stripMargin)
   )
 
-  //todo add practical example from yesterday - fixing a BlockingQueue's poll method
   val OptionBlockingQueue = SimpleSlide("OptionBlockingQueue",
-    t("Refitting With Option"),
+    t("Get Rid of nulls With Option"),
     TextLine("BlockingQueue.poll() returns either a value or null",Style.HeadLine),
     CodeBlock(
       s"""val blockingQueue:BlockingQueue[String] = ...
          |
          |Option(blockingQueue.poll()).foreach{ string:String => println(string)}""".stripMargin),
-    TextLine("foreach() takes f(s:String) as a paramter",Style.SupportLine),
-    TextLine("Evaluates f(s) for the one s in Some(s)",Style.SupportLine),
-    TextLine("Does nothing for None",Style.SupportLine)
+    TextLine("foreach() takes some f(s:String) as a parameter",Style.SupportLine),
+    TextLine("For the one s in Some(s) foreach() Evaluates f(s)",Style.SupportLine),
+    TextLine("For None foreach() does nothing",Style.SupportLine)
   )
 
   val FuncFold = SimpleSlide("FuncFold",

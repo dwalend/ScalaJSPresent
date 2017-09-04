@@ -155,32 +155,29 @@ object ProsAndCons {
 
   )
 
-  //todo scala native
   val MorePros = SimpleSlide("MorePros",
     t("Scala - More Pros"),
-    TextLine("Fits Contemporary and Next Generation Computing Systems", Style.HeadLine),
-    TextLine("Immutable FP Can Use All Cores With Safety and Comfort",Style.SupportLine),
-    FragmentLine(Seq(
-      TextFragment("Distributed, Large Scale, Reliable: "),
-      LinkFragment("Akka","http://akka.io"),TextFragment(", "),
-      LinkFragment("Spark","https://spark.apache.org"),TextFragment(", "),
-      LinkFragment("Storm","https://storm.apache.org")
-    ),Style.TertiaryLine),
-    LinkTextLine("Spark sped up Hadoop by 100X","https://spark.apache.org",Style.TertiaryLine),
-    FragmentLine(Seq(
-      LinkFragment("Vectorized CPU","https://github.com/scalanlp/breeze/wiki/Quickstart"),TextFragment(" and "),
-      LinkFragment("GPU","https://github.com/dlwh/puck"),TextFragment(" Libraries Being Developed")
-    ),Style.TertiaryLine),
-    FragmentLine(Seq(
-      TextFragment("Compile Scala to Javascript via "),LinkFragment("scala.js","http://www.scala-js.org")),
-      Style.HeadLine),        //todo scala native, tastey, and dotty, too
-    TextLine("Run in a Browser or via node.js Instead of in the JVM",Style.TertiaryLine),
-    LinkTextLine("Project TASTY to Target New Platforms More Easily","https://docs.google.com/document/d/1h3KUMxsSSjyze05VecJGQ5H2yh7fNADtIf3chD3_wr0/edit",Style.SupportLine),
-    TextLine("Sometimes Future-Proof",Style.HeadLine),
-//    LinkTextLine("Spray to use Akka streams without changing existing Spray Routes","http://spray.io/msug/#/",Style.TertiaryLine),
-    TextLine("Fun",Style.HeadLine)
+    l1("Fits Contemporary and Next Generation Computing Systems"),
+    l2("Immutable FP Style Can Use All Cores With Safety and Comfort"),
+    l3(
+      f("Distributed, Large Scale, Reliable: "),
+      f("Akka","http://akka.io"),f(", "),
+      f("Spark","https://spark.apache.org"),f(", "),
+      f("Storm","https://storm.apache.org")
+    ),
+    l3("Spark sped up Hadoop by 100X","https://spark.apache.org"),
+    l3(
+      f("Vectorized CPU","https://github.com/scalanlp/breeze/wiki/Quickstart"),f(" and "),
+      f("GPU","https://github.com/dlwh/puck"),f(" Libraries Being Developed")
+    ),
+    l3("Project TASTY to Target New Platforms More Easily","https://docs.google.com/document/d/1h3KUMxsSSjyze05VecJGQ5H2yh7fNADtIf3chD3_wr0/edit"),
+    l2(
+      f("Compile to Javascript via "),f("scala.js","http://www.scala-js.org"),f(" and Run in a Browser or via node.js")),
+    l3("Like this Presentation (a Single Page Scala.js Browser App)"),
+    l2(f("Compile to native on Unix with "),f("Scala Native","http://www.scala-native.org/en/latest/")) ,
+    l1("Sometimes Future-Proof - Project Dotty"),
+    l1("Fun")
   )
-  //todo scala.js breakout "Your hands are soaking in it"
 
   val Cons = SimpleSlide("Cons",
     t("Scala - Cons"),
@@ -198,7 +195,7 @@ object ProsAndCons {
     TextLine("Small, Tight-Knit Community",Style.HeadLine),
     TextLine("Academic Instead of Pragmatic Biases",Style.SupportLine),
     TextLine("Local (Boston) Uptake Finally Reached 128 in late 2016",Style.HeadLine),
-    TextLine("Most Jobs remain in Pockets: Kendall Square, South End, Harbor District, Longwood",Style.TertiaryLine),
+    TextLine("Most Jobs remain in Pockets: Kendall Square, South End, Harbor District, Longwood",Style.SupportLine),
     TextLine("Rapidly Evolving Toolset and Libraries",Style.HeadLine),
     TextLine("Mild Disregard for Backwards Compatibility",Style.SupportLine),
     TextLine("Spray.io to Akka-http is the Latest of Many",Style.SupportLine)

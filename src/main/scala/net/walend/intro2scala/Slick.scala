@@ -16,15 +16,14 @@ object Slick {
     TextLine("Uses Scala's Common Currencies In Its API",Style.SupportLine),
     TextLine("Case Classes and Tuples",Style.SupportLine),
     LinkTextLine("A Functional-Relational Mapping API Makes Queries Look Like Scala","http://slick.typesafe.com/doc/3.0.0/introduction.html",Style.HeadLine),
-    LinkTextLine("Compact, Clean Code","https://open.med.harvard.edu/vvc/viewvc.cgi/shrine/trunk/code/steward/src/main/scala/net/shrine/steward/db/StewardDatabase.scala?view=markup",Style.SupportLine),
-    LinkTextLine("Composible Queries","https://open.med.harvard.edu/vvc/viewvc.cgi/shrine/trunk/code/steward/src/main/scala/net/shrine/steward/db/StewardDatabase.scala?view=markup",Style.SupportLine),
+    LinkTextLine("Compact, Clean Code","https://open.med.harvard.edu/stash/projects/SHRINE/repos/shrine/browse/apps/steward-app/src/main/scala/net/shrine/steward/db/StewardDatabase.scala",Style.SupportLine),
+    LinkTextLine("Composible Queries Run Inside Higher-Order Functions","https://open.med.harvard.edu/stash/projects/SHRINE/repos/shrine/browse/apps/steward-app/src/main/scala/net/shrine/steward/db/StewardDatabase.scala",Style.SupportLine),
     TextLine("A Plain SQL API Gives Full Control Over SQL",Style.HeadLine),
     TextLine("Isolates SQL's Complexity",Style.SupportLine)
   )
 
-  //todo can that toRow be simplified?
   val SlickLiftedTable = SimpleSlide("SlickLiftedTable",
-    t("Slick Lifted Table"),
+    t("Slick Table"),
     CodeBlock("""case class TopicRecord(id:Option[TopicId] = None,
                 |                        name:String,
                 |                        description:String,
@@ -76,9 +75,8 @@ object Slick {
 
   )
 
-  //todo update code for Slick 3. Still session-based
   val SlickLiftedQuery = SimpleSlide("SlickLiftedQuery",
-    t("Slick Composible Lifted Query"),
+    t("Slick Composible Query"),
     CodeBlock("""  private def topicCountQuery(queryParameters: QueryParameters):Query[TopicTable, TopicTable#TableElementType, Seq] = {
                 |    val allTopics:Query[TopicTable, TopicTable#TableElementType, Seq] = allTopicQuery
                 |    val researcherFilter = queryParameters.researcherIdOption.fold(allTopics)(
@@ -114,26 +112,33 @@ object Slick {
                 |                    skip => orderByQuery.drop(skip))
                 |    val limitFilter = queryParameters.limitOption.fold(skipFilter)(
                 |                    limit => skipFilter.take(limit))
-                |
                 |    limitFilter
                 |  }
                 |
-                |  def selectTopicsForSteward(queryParameters: QueryParameters):StewardsTopics = {
-                |    withDatabaseSession { implicit session: Session =>
-                |      createStewardsTopics(topicCountQuery(queryParameters).length.run,
-                |                            queryParameters.skipOption.getOrElse(0), //List starts at this record number
-                |                            topicSelectQuery(queryParameters).list)
-                |    }
+                |    def selectTopicsForSteward(queryParameters: QueryParameters):StewardsTopics = {
+                |
+                |      val (count, topics, userNamesToOutboundUsers) = runTransactionBlocking {
+                |        for {
+                |          count <- topicCountQuery(queryParameters).length.result
+                |          topics <- topicSelectQuery(queryParameters).result
+                |          userNamesToOutboundUsers <- outboundUsersForNamesAction((topics.map(_.createdBy) ++ topics.map(_.changedBy)).to[Set])
+                |        } yield (count, topics, userNamesToOutboundUsers)
+                |      }
+                |
+                |    StewardsTopics(count,
+                |                    queryParameters.skipOption.getOrElse(0),
+                |                    topics.map(_.toOutboundTopic(userNamesToOutboundUsers)))
                 |  }
                 |
-                |  def withDatabaseSession[T](f: Session => T): T = {
-                |    blocking {
-                |      database.withSession(f)
+                |  def runTransactionBlocking[R](dbio: DBIOAction[R, NoStream, _], timeout: Duration = timeout): R = {
+                |    try {
+                |      Await.result(this.run(dbio.transactionally), timeout)
+                |    } catch {
+                |        case tx:TimeoutException => throw TimeoutInDbIoActionException(JsonStoreDatabase.dataSource, timeout, tx)
+                |        case NonFatal(x) => throw CouldNotRunDbIoActionException(JsonStoreDatabase.dataSource, x)
+                |      }
                 |    }
-                |  }
-                |
-                |
-                |""".stripMargin),
+                |  }""".stripMargin),
     TextLine("Produces SQL that looks like this: "),
     CodeBlock("""select x2."id", x2."name", x2."description", x2."createdBy",
                 |x2."createDate", x2."state", x2."changedBy", x2."changeDate" from "topics"
@@ -143,7 +148,7 @@ object Slick {
 
   val SlickComposibleQuery = SimpleSlide("SlickComposibleQuery",
     t("New Requirement - Change History for Topics"),
-    TextLine("Composible Queries Work",Style.HeadLine),
+    TextLine("Compose With a New Query",Style.HeadLine),
     CodeBlock("""  val mostRecentTopicQuery: Query[TopicTable, TopicRecord, Seq] = for(
                 |    topic <- allTopicQuery if !allTopicQuery.filter(_.id === topic.id).filter(_.changeDate > topic.changeDate).exists
                 |  ) yield topic

@@ -14,16 +14,16 @@ object Spray {
 
   val SprayIntro = SimpleSlide("SprayIntro",
     t("Spray.io","http://spray.io/introduction/what-is-spray/"),
-    TextLine("A Library For Web Micro Services and Clients",Style.HeadLine),
-    LinkTextLine("Asyncrhonous, Actor-Based, NIO-Based, Fast, Lightweight, Modular, and Testable","http://spray.io/introduction/what-is-spray/",Style.SupportLine),
-    TextLine("A Spray HttpService Builds an HttpResponse for an HttpRequest Using a Route",Style.TertiaryLine),
-    TextLine("A Spray Service Might Use All IO or All Cores With a Gentle Degradation",Style.SupportLine),
-    TextLine("Timeout 500 Status Without Systemic Failure",Style.TertiaryLine),
-    TextLine("Spray Provides Domain-Specific Languages",Style.HeadLine),
-    TextLine("Make HttpRequests in Clients",Style.SupportLine),
-    TextLine("Respond to HttpRequests in Micro Servers",Style.SupportLine),
-    LinkTextLine("Next Version to be Renamed Akka-Http, Built on Akka Streams","http://typesafe.com/blog/typesafe-gets-sprayed",Style.HeadLine),
-    LinkTextLine("Play2's Internals to be Rewritten to Use Akka-Http","http://typesafe.com/blog/typesafe-gets-sprayed",Style.SupportLine)
+    l1("A Library For Web Micro Services and Clients"),
+    l2("Asyncrhonous, Actor-Based, NIO-Based, Fast, Lightweight, Modular, and Testable","http://spray.io/introduction/what-is-spray/"),
+    l2("A Spray HttpService Builds an HttpResponse for an HttpRequest Using a Route"),
+    l2("A Spray Service Might Use All IO or All Cores With a Gentle Degradation"),
+    l2("Timeout 500 Status Without Systemic Failure"),
+    l1("Spray Provides Domain-Specific Languages"),
+    l2("Make HttpRequests in Clients"),
+    l2("Respond to HttpRequests in Micro Servers"),
+    l1("Next Version to be Renamed Akka-Http, Built on Akka Streams","http://typesafe.com/blog/typesafe-gets-sprayed"),
+    l2("Play2's Internals to be Rewritten to Use Akka-Http","http://typesafe.com/blog/typesafe-gets-sprayed")
   )
 
   val SprayRoute = SimpleSlide("SprayRoute",
@@ -93,7 +93,6 @@ object Spray {
                 |    import spray.routing.directives.RespondWithDirectives.respondWithStatus
                 |
                 |    override def happly(f: (shapelessConcat[QueryParameters, HNil]) => Route): Route = {
-                |      //todo name safety for column names and sort direction
                 |      parameters('state.?,'skip.as[Int].?,'limit.as[Int].?,'sortBy.as[String].?,'sortDirection.as[String].?) { (stateStringOption,skipOption,limitOption,sortByOption,sortOption) =>
                 |
                 |        val stateTry = TopicState.stateForStringOption(stateStringOption)
@@ -158,7 +157,6 @@ object Spray {
                 |""".stripMargin)
   )
 
-  //todo fill in a slide about the transition to Akka-http
   val ToAkkaHttp = SimpleSlide("ToAkkaHttp",
     t("Transition to Akka-Http"),
     l1("A Route Really Does Convert an HttpRequestContext Into a Promised HttpResponse."),

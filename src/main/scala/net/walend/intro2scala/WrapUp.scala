@@ -16,11 +16,12 @@ object WrapUp {
     TextLine("Scala Can Adopt New Code Styles",Style.HeadLine),
     TextLine("Java Follows Scala: JDK8 Streams, Lambdas, Optional",Style.SupportLine),
     TextLine("Even More Awkward For Other Language Ecosystems",Style.SupportLine),
+    TextLine("But Project Dotty Reworks and Simplifies Scala's Type System",Style.SupportLine),
     TextLine("Modern Hardware Provides More Cores, Spread Out, Different",Style.HeadLine),
     TextLine("No Longer a Faster Solver For the Halting Problem",Style.SupportLine),
     TextLine("Functional Programming Can Get Back Your 'Free Lunch'",Style.SupportLine),
-    TextLine("Big Data Tools Are Written in Scala - Spark, Storm, Neo4J, Many Others",Style.SupportLine), //todo scala native, tastey and dotty
-    TextLine("Scala Native could provide access to bare metal hardware",Style.SupportLine), 
+    TextLine("Big Data Tools Are Written in Scala - Spark, Storm, Neo4J, Many Others",Style.SupportLine),
+    TextLine("Scala Native will provide access to bare metal hardware",Style.SupportLine),
     TextLine("Scala.js Compiles Scala to JavaScript (also Tasty!)",Style.HeadLine),
     TextLine("Even Browser Code Could Be Fun",Style.SupportLine)
   )
