@@ -3,7 +3,7 @@
 
 # sbt specific
 dist/*
-target/
+#target/*
 lib_managed/
 src_managed/
 project/boot/
@@ -22,4 +22,4 @@ project/plugins/project/
 /project/*-shim.sbt
 /project/project/
 /project/target/
-/target/
+#/target/
