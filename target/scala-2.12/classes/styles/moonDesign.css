@@ -1,0 +1,17 @@
+.container {
+  height: 100vh;
+  position: relative;
+  background-color: #000033;
+  color: #eeeeee;
+  font-family: "Open Sans", sans-serif;
+  overflow: scroll;
+}
+.container .text-container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+.container a {
+ color: #ffff99
+}
+
