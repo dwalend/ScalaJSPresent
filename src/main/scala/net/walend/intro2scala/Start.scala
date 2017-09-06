@@ -39,7 +39,7 @@ object Start {
   )
 
   val ScalaWhat = SimpleSlide("ScalaWhat",
-    t(f("Scala: "),f("A Scalable Programming Language","http://www.scala-lang.org/what-is-scala.html")),
+    t(f("Scala: "),f("A Scalable Programming Language","http://docs.scala-lang.org/tour/tour-of-scala.html")),
     TextLine("Scales in Scope",Style.HeadLine),
     TextLine("Scripting, Web pages, Desktop, Servers",Style.SupportLine),
     TextLine("Distributed - Homogeneous and Heterogeneous",Style.SupportLine),
