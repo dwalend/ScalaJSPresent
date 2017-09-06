@@ -198,7 +198,7 @@ object ProsAndCons {
     TextLine("Most Jobs remain in Pockets: Kendall Square, South End, Harbor District, Longwood",Style.SupportLine),
     TextLine("Rapidly Evolving Toolset and Libraries",Style.HeadLine),
     TextLine("Mild Disregard for Backwards Compatibility",Style.SupportLine),
-    TextLine("Spray.io to Akka-http is the Latest of Many",Style.SupportLine)
+    TextLine("Spray.io to Akka-Http is the Latest of Many",Style.SupportLine)
   )
 
   val slides = Seq(Pros,CaseClass,MorePros,Cons,MoreCons)

@@ -12,7 +12,7 @@ object Start {
 
   val Cover = SimpleSlide ("Cover",
     t("An Introduction To Scala"),
-    t("With Examples Using Slick and Akka-http"),
+    t("With Examples Using Slick and Akka-Http"),
     blank,
     st("David Walend"),
     st("Boston Scala Meetup, September 6th, 2017"),

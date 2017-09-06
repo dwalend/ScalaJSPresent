@@ -160,7 +160,7 @@ object Spray {
   val ToAkkaHttp = SimpleSlide("ToAkkaHttp",
     t("Transition to Akka-Http"),
     l1("A Route Really Does Convert an HttpRequestContext Into a Promised HttpResponse."),
-    l1("Akka-http doesn't use Shapeless in directives anymore")
+    l1("Akka-Http doesn't use Shapeless in directives anymore")
     //todo code clip of the new type of directive
   )
 
