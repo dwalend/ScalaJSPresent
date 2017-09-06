@@ -18,7 +18,7 @@ object ScalaJsPresent extends JSApp {
     jQuery(setupUI _)
   }
 
-  val slides: Seq[SimpleSlide] = IntroToScala.slides
+  val slides: Seq[Slide] = IntroToScala.slides
   val slideHtml: Seq[TypedTag[Div]] = slides.map(ToScalaTags.toSlideHtml)
   var currentSlideIndex = 0
 
