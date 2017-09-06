@@ -21,7 +21,7 @@ object ProsAndCons {
     TextLine("Use Scala as a Better Java on the First Day",Style.SupportLine),
     TextLine("Knowledge of Java Libraries Carries Forward",Style.SupportLine),
     TextLine("""Out "Javas" Java in all but Community and Uptake"""),
-    FragmentLine(Seq(TextFragment("Compare "),LinkFragment("Scala's Intents","http://www.scala-lang.org/what-is-html"),TextFragment(" to "),LinkFragment("Java's","http://www.oracle.com/technetwork/java/intro-141325.html#334")))
+    FragmentLine(Seq(TextFragment("Compare "),LinkFragment("Scala's Intents","http://web.archive.org/web/20170702203348/http://www.scala-lang.org/what-is-scala.html"),TextFragment(" to "),LinkFragment("Java's","http://www.oracle.com/technetwork/java/intro-141325.html#334")))
   )
 
   val CaseClass = SimpleSlide("CaseClass",
