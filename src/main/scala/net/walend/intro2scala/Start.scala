@@ -79,6 +79,16 @@ object Start {
                 |  }""".stripMargin)
   )
 
+  val FP = SimpleSlide("FP",
+    t("Functional Programming"),
+    TextLine("Everything is Immutable",Style.HeadLine),
+    TextLine("Create New Immutable Things From What You Have",Style.HeadLine),
+    TextLine("Functions are First Class Citizens",Style.HeadLine),
+    TextLine("Because Functions are Objects",Style.SupportLine),
+    TextLine("Collections Have Higher Order Functions For Transforming Their Contents",Style.HeadLine),
+    l1("""When Someone Says "Monad" Think "I Can Use flatmap()" ""","https://medium.com/@sinisalouc/demystifying-the-monad-in-scala-cc716bb6f534")
+  )
+
   val FuncOption = SimpleSlide("FuncOption",
     t("Functional Programming with Option[T]"),
     TextLine("Handle Empty Fields With a Collection of Zero or One Thing",Style.HeadLine),
@@ -122,5 +132,5 @@ object Start {
     LinkTextLine("Read more about fold()()","https://coderwall.com/p/4l73-a/scala-fold-foldleft-and-foldright",Style.SupportLine)
   )
 
-  val slides = Seq(Cover,Abstract,Outline,ScalaWhat,CodeStyle,CodeStyleFromLanguage,FuncOption,OptionBlockingQueue,FuncFold)
+  val slides = Seq(Cover,Abstract,Outline,ScalaWhat,CodeStyle,CodeStyleFromLanguage,FP,FuncOption,OptionBlockingQueue,FuncFold)
 }
