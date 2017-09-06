@@ -16,7 +16,7 @@ object Start {
     blank,
     st("David Walend"),
     st("Boston Scala Meetup, September 6th, 2017"),
-    st("Slides Online", "https://dwalend.github.io/IntroScalaTalk/Cover.md") //todo new version. Also, can you hang .js files?
+    st("Slides Online", "https://dwalend.github.io/ScalaJSPresent/scalajs-tutorial-fastopt.html") 
   )
 
   val Abstract = SimpleSlide("Abstract",
