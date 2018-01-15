@@ -108,12 +108,12 @@ object Slick {
                 |          case "changeDate" => x.changeDate
                 |        })))
                 |
-                |    val skipFilter = queryParameters.skipOption.fold(orderByQuery)(
-                |                    skip => orderByQuery.drop(skip))
-                |    val limitFilter = queryParameters.limitOption.fold(skipFilter)(
+                |      val skipFilter = queryParameters.skipOption.fold(orderByQuery)(
+                |                      skip => orderByQuery.drop(skip))
+                |      val limitFilter = queryParameters.limitOption.fold(skipFilter)(
                 |                    limit => skipFilter.take(limit))
-                |    limitFilter
-                |  }
+                |      limitFilter
+                |    }
                 |
                 |    def selectTopicsForSteward(queryParameters: QueryParameters):StewardsTopics = {
                 |
@@ -132,10 +132,10 @@ object Slick {
                 |
                 |  def runTransactionBlocking[R](dbio: DBIOAction[R, NoStream, _], timeout: Duration = timeout): R = {
                 |    try {
-                |      Await.result(this.run(dbio.transactionally), timeout)
+                |      Await.result(db.run(dbio.transactionally), timeout)
                 |    } catch {
-                |        case tx:TimeoutException => throw TimeoutInDbIoActionException(JsonStoreDatabase.dataSource, timeout, tx)
-                |        case NonFatal(x) => throw CouldNotRunDbIoActionException(JsonStoreDatabase.dataSource, x)
+                |        case tx:TimeoutException => throw TimeoutInDbIoActionException(db.dataSource, timeout, tx)
+                |        case NonFatal(x) => throw CouldNotRunDbIoActionException(db.dataSource, x)
                 |      }
                 |    }
                 |  }""".stripMargin),

@@ -22,7 +22,7 @@ object WrapUp {
     TextLine("Functional Programming Can Get Back Your 'Free Lunch'",Style.SupportLine),
     TextLine("Big Data Tools Are Written in Scala - Spark, Storm, Neo4J, Many Others",Style.SupportLine),
     TextLine("Scala Native will provide access to bare metal hardware",Style.SupportLine),
-    TextLine("Scala.js Compiles Scala to JavaScript (also Tasty!)",Style.HeadLine),
+    TextLine("Scala.js Compiles Scala to JavaScript",Style.HeadLine),
     TextLine("Even Browser Code Could Be Fun",Style.SupportLine)
   )
 
@@ -31,7 +31,7 @@ object WrapUp {
     TextLine("... take advantage of simple language features that afford great power but avoid the esoteric ones ...",Style.Quote),
     TextLine("... complexity is the tax of sophistication - you must always ensure that its utility exceeds its cost.",Style.Quote),
     BlankLine,
-    LinkTextLine("Twitter's _Effective Scala_","http://twitter.github.io/effectivescala/",Style.Plain)
+    LinkTextLine("Twitter's Effective Scala","http://twitter.github.io/effectivescala/",Style.Plain)
 
   )
 

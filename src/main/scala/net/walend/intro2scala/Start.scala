@@ -81,12 +81,12 @@ object Start {
 
   val FP = SimpleSlide("FP",
     t("Functional Programming"),
-    TextLine("Everything is Immutable",Style.HeadLine),
-    TextLine("Create New Immutable Things From What You Have",Style.HeadLine),
     TextLine("Functions are First Class Citizens",Style.HeadLine),
     TextLine("Because Functions are Objects",Style.SupportLine),
-    TextLine("Collections Have Higher Order Functions For Transforming Their Contents",Style.HeadLine),
-    l1("""When Someone Says "Monad" Think "I Can Use flatmap()" ""","https://medium.com/@sinisalouc/demystifying-the-monad-in-scala-cc716bb6f534")
+    TextLine("Everything is Immutable",Style.HeadLine),
+    TextLine("Create New Immutable Things From What You Have",Style.HeadLine),
+    TextLine("Immutable Collections Have Higher Order Functions For Creating New Immutable Collections",Style.HeadLine),
+    l1(""""Monad" Means You Can Use map(), flatten(), and flatMap()" ""","https://medium.com/@sinisalouc/demystifying-the-monad-in-scala-cc716bb6f534")
   )
 
   val FuncOption = SimpleSlide("FuncOption",
@@ -96,7 +96,7 @@ object Start {
       TextFragment("Replace Nulls And Checks to fix Sir Tony Hoare's "),
       LinkFragment(""""billion-dollar mistake ... the invention of the null reference in 1965"""","http://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions",Style.SupportLine
       ))),
-    TextLine("Option[T] is a sealed abstract class with two subclasses",Style.HeadLine),
+    TextLine("Option[T] is a sealed abstract class with Two Subclasses",Style.HeadLine),
     TextLine("Some - When a Value is Present",Style.SupportLine),
     TextLine("None - When No Value is Present",Style.SupportLine),
     TextLine("Takes a type parameter T",Style.SupportLine),
@@ -113,7 +113,7 @@ object Start {
       s"""val blockingQueue:BlockingQueue[String] = ...
          |
          |Option(blockingQueue.poll()).foreach{ string:String => println(string)}""".stripMargin),
-    TextLine("foreach() takes some f(s:String) as a parameter",Style.SupportLine),
+    TextLine("Option's foreach() takes f(s:String) as a parameter",Style.SupportLine),
     TextLine("For the one s in Some(s) foreach() Evaluates f(s)",Style.SupportLine),
     TextLine("For None foreach() does nothing",Style.SupportLine)
   )
